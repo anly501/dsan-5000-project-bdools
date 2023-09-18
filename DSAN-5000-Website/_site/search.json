@@ -1,31 +1,31 @@
 [
   {
-    "objectID": "about-me/index.html#education",
-    "href": "about-me/index.html#education",
+    "objectID": "index.html#education",
+    "href": "index.html#education",
     "title": "About Me",
     "section": "Education",
     "text": "Education\n\n\n\n\nflowchart LR\n  A(Horace Mann School) --&gt; B(Georgetown University)\n  B --&gt; C(The Real World)\n\n\n\n\n\n\n\n\nSchool\nDegree\nYears\n\n\n\n\nGeorgetown University\nM.S., Data Science & Analytics\n2023-2025\n\n\nGeorgetown University\nB.A., Physics & Classics\n2020-2024"
   },
   {
-    "objectID": "about-me/index.html#interests",
-    "href": "about-me/index.html#interests",
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
     "title": "About Me",
     "section": "Interests",
     "text": "Interests\n\nAcademic\n\nPhysics\n\nElectromagnetism\nElectrical Engineering\nSensors & Digital Electronics\n\nMedical Technology\n\nContinous Glucose Monitors\nInsulin Pumps\nConsumer Biowearables\n\nHistory of the Late Roman Republic\n\nMarcus Porcius Cato Uticensis\nMarcus Tulius Cicero\nGaius Julius Caesar\nLucius Cornelius Sulla\nGaius Marius\n\n\nExtracurricular\n\nGovernment\n\nUS Politics\nInternational Affairs\nScience & Technology Policy\nDefense & National Security\n\nWellness\n\nRunning\nCycling\nRowing\n\nCultural\n\nClassical Art & Architecture\nRenaissance Art & Architecture\nFarmers’ Markets"
   },
   {
-    "objectID": "about-me/index.html#continuous-glucose-monitors",
-    "href": "about-me/index.html#continuous-glucose-monitors",
+    "objectID": "index.html#continuous-glucose-monitors",
+    "href": "index.html#continuous-glucose-monitors",
     "title": "About Me",
     "section": "Continuous Glucose Monitors",
-    "text": "Continuous Glucose Monitors\nHere are some good informational videos about continuous glucose monitoring systems, which have revolutionized diabetes care & management and are beggining to be used in commerical, non-clinical context."
+    "text": "Continuous Glucose Monitors\nHere are some good informational videos about continuous glucose monitoring systems, which have revolutionized diabetes care & management and are beginning to be used in commerical, non-clinical context."
   },
   {
-    "objectID": "about-me/index.html#footnotes",
-    "href": "about-me/index.html#footnotes",
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
     "title": "About Me",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nM. Tulius Cicero, De Officiis↩︎\nM. Tulius Cicero, Orationum, Pars I↩︎\nPlutarch, Life of Cato Minor, Book 66↩︎"
+    "text": "Footnotes\n\n\nM. Tulius Cicero, De Officiis↩︎\nM. Tulius Cicero, De Re Publica↩︎\nM. Tulius Cicero, De Oratore↩︎\nPlutarch, Life of Cato Minor↩︎"
   },
   {
     "objectID": "data-exploration/data-exploration.html",

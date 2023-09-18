@@ -4,7 +4,7 @@ project:
 website:
   title: "DSAN-5000: Project"
   navbar:
-    title: "ESG & Data"
+    title: "Exploring Clinical Trial Success"
     search: true
     logo-href: https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png
 
@@ -12,7 +12,7 @@ website:
       - icon: github
         href: https://github.com/anly501/dsan-5000-project-bdools
     left:
-      - href: ./about-me/index.qmd
+      - href: ./index.qmd
         text: About Me
       - href: https://github.com/anly501/dsan-5000-project-bdools
         text: Code

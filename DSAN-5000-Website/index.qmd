@@ -1,0 +1,88 @@
+---
+title: "About Me"
+---
+
+::: {layout-ncol=2}
+![](./about-me/media/headshot.png){width=400}
+
+![](./about-me/media/ben-doolan-2.jpeg){width=300}
+:::
+
+# **Ben Doolan**
+
+Ben Doolan is a senior at Georgetown University, majoring in Physics and Classics, while pursuing a Master of Science in Data Science & Analytics through Georgetown's accelerated DSAN program. This summer, Ben worked at EY-Parthenon, a management consulting firm, out of their San Francisco office. There, he worked with a large private equity client, helping restructure a portfolio company's IT spend as part of a technology transformation. The prior two summers, Ben worked as a data intern at *L* Catterton, a consumer focused private equity firm. In the future, Ben hopes to explore the intersection of physics, statistics, medicine, biology, and computer science in their application to the life sciences. In particular, he'd to examine how statistical and machine learning techniques can be applied to improve the predictive capabilities of Continuous Glucose Monitors for Type 1 Diabetes management. In his free time, Ben enjoy reading, visiting museums, and discussing politics and current affairs.
+
+## Education
+
+```{mermaid}
+flowchart LR
+  A(Horace Mann School) --> B(Georgetown University)
+  B --> C(The Real World)
+```
+
+
+| School | Degree | Years |
+|------|------|------|
+| Georgetown University | M.S., *Data Science & Analytics* | 2023-2025 |
+| Georgetown University | B.A., *Physics & Classics* | 2020-2024 |
+
+## **Interests**
+
+* **Academic**
+    + Physics
+      + Electromagnetism
+      + Electrical Engineering
+      + Sensors & Digital Electronics
+    + Medical Technology
+      + Continous Glucose Monitors
+      + Insulin Pumps
+      + Consumer Biowearables
+    + History of the Late Roman Republic
+      + Marcus Porcius Cato Uticensis
+      + Marcus Tulius Cicero
+      + Gaius Julius Caesar
+      + Lucius Cornelius Sulla
+      + Gaius Marius
+* **Extracurricular**
+    + Government
+      + US Politics
+      + International Affairs
+      + Science & Technology Policy
+      + Defense & National Security
+    + Wellness
+      + Running
+      + Cycling
+      + Rowing
+    + Cultural
+      + Classical Art & Architecture
+      + Renaissance Art & Architecture
+      + Farmers' Markets
+
+# Video Library
+
+## Continuous Glucose Monitors
+
+Here are some good informational videos about continuous glucose monitoring systems, which have revolutionized diabetes care & management and are beginning to be used in commerical, non-clinical context.
+
+::: {layout-ncol=3}
+{{< video https://www.youtube.com/watch?v=glgRHqT787Y title='CGM Technology Overview' >}}
+
+{{< video https://www.youtube.com/watch?v=1FecOjMsgMw title='Sensing Mechanism Overview' >}}
+
+{{< video https://www.youtube.com/watch?v=nYy1zEHvXZ4 title='Commercialization of CGMs' >}}
+:::
+
+# Guiding Quotes
+
+> There are, on the other hand, two kinds of injustice — the one, on the part of those who inflict wrong, the other on the part of those who, when they can, do not shield from wrong those upon whom it is being inflicted.[^1]
+
+> True law is right reason in agreement with nature; it is of universal application, unchanging and everlasting; it summons to duty by its commands, and averts from wrongdoing by its prohibitions. And it does not lay its commands or prohibitions upon good men in vain, though neither have any effect on the wicked.[^2]
+
+> History, in truth, bears witness to time, is the illuminator of reality, the vitality of remembrance, the guide of life, the messenger of bygone days.[^3]
+
+> The cause and principle of all Cato's actions, as well as of his consistency in those actions, was a strong bent to uphold righteousness by any and every means, and a vehement and ardent passion for distinction, not for his own sake, but for the sake of the city, [^4]
+
+[^1]: M. Tulius Cicero, *De Officiis*
+[^2]: M. Tulius Cicero, *De Re Publica*
+[^3]: M. Tulius Cicero, *De Oratore*
+[^4]: Plutarch, *Life of Cato Minor*

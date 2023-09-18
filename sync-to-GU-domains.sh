@@ -15,6 +15,6 @@
 # YOU CAN ALSO RUN THIS COMMAND BY PASTING IT INTO THE TERMINAL
 
 # IP: 15.204.146.110
-# Password: ]w5J:1639KctoF
+# Password: ]w5J:I639KctoF
 
 rsync -alvr ./DSAN-5000-Website/_site bendoola@gtown3.reclaimhosting.com:/home/bendoola/public_html/
