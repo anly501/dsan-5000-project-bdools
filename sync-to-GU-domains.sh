@@ -13,4 +13,8 @@
 # SYNC LOCAL VERSION OF WEBSITE TO GU-DOMAINS SERVER
 # OBVIOUSLY YOU WILL NEED TO UPDATE THIS WITH INFORMATION FOR YOUR GU SERVER 
 # YOU CAN ALSO RUN THIS COMMAND BY PASTING IT INTO THE TERMINAL
-rsync -alvr dsan-website INSERT_USER_NAME@gtownX.reclaimhosting.com:/home/INSERT_USER_NAME/public_html/
+
+# IP: 15.204.146.110
+# Password: ]w5J:1639KctoF
+
+rsync -alvr ./DSAN-5000-Website/_site bendoola@15.204.146.110.com:/home/bendoola/public_html/
