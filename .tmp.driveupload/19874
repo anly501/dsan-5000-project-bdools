@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Data Cleaning</title>
+<title>DSAN-5000: Project - Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about-me/index.html" rel="" target="">
+    <a class="nav-link" href="../index.qmd" rel="" target="">
  <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../introduction/introduction.html" rel="" target="">
+    <a class="nav-link active" href="../introduction/introduction.html" rel="" target="" aria-current="page">
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../data-cleaning/data-cleaning.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../data-cleaning/data-cleaning.html" rel="" target="">
  <span class="menu-text">Data Cleaning</span></a>
   </li>  
   <li class="nav-item">
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href=".././ARM/arm.ipynb" rel="" target="">
+    <a class="nav-link" href=".././arm/arm.ipynb" rel="" target="">
  <span class="menu-text">ARM</span></a>
   </li>  
   <li class="nav-item">
@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>Data Cleaning</strong></h1>
+<h1 class="title"><strong>Introduction</strong></h1>
 </div>
 
 
