@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "DSAN-5000: Introduction",
+    "title": "About Me",
     "section": "",
-    "text": "See the following link for more information about the author: about me\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nHIGHLY RECOMMENDED\n\nIt is highly recommended that you build your website using .ipynb files and NOT .qmdfiles\nFunctionally the two formats are basically identical, i.e. they are just Markdown + Code\nHowever there is ONE MAJOR DIFFERENCE, i.e. .ipynb stores the code outputs in the meta-data of the file\n\nThis means you ONLY HAVE TO RUN THE CODE ONCE with .ipynb\n.qmd will run the code every time you build the website, which can be very slow\n\nThere are caching options for .qmd, however, they are “messier” that just using .ipynb\n\nNote: .qmd is fine if there is no code, in which case it is basically just a Markdown file\n\nConverting between the two\n\nYou can switch between the two formats using\nquarto convert clustering.qmd this will output a .ipynb version called clustering.ipynb\nquarto convert eda.ipynb this will output a .qmd version called eda.qmd\n\nYOU CAN RUN R CODE IN VSC WITH .ipynb, see the following link\n\nhttps://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/\n\nIt is possible, but NOT RECOMMENDED, to mix Python and R code in the same file\n\nIMPORTANT ASIDE\n\nA .ipynb file is simply a JSON file with a specialized structural format\nYou can see this by running more eda/eda.ipynb from the command line\nWhich will output the following;\n\n\nTIP FOR MAC USERS\n\ncommand+control+shift+4 is very useful on a mac.\n\nIt takes a screenshot and saves it to the clip-board\n\nThe following VSC extension allows you to paste images from the clip-board with alt+command+v.\n\ntab is your best friend when using the command line, since it does auto-completion\nopen ./path_to_file will open any file or directory from the command line"
+    "text": "Caption"
   },
   {
     "objectID": "eda/eda.html",
@@ -33,5 +33,89 @@
     "title": "Clustering",
     "section": "",
     "text": "Build out your website tab for “clustering”"
+  },
+  {
+    "objectID": "data-exploration/data-exploration.html",
+    "href": "data-exploration/data-exploration.html",
+    "title": "Data Exploration",
+    "section": "",
+    "text": "Build out your website tab for exploratory data analysis"
+  },
+  {
+    "objectID": "data-exploration/data-exploration.html#quick-look-at-the-data",
+    "href": "data-exploration/data-exploration.html#quick-look-at-the-data",
+    "title": "Data Exploration",
+    "section": "Quick look at the data",
+    "text": "Quick look at the data\n\n# Import seaborn\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Apply the default theme\nsns.set_theme(style=\"whitegrid\", palette=\"pastel\")\n\n# Load an example dataset\ntips = sns.load_dataset(\"tips\")\nprint(tips)\n\n     total_bill   tip     sex smoker   day    time  size\n0         16.99  1.01  Female     No   Sun  Dinner     2\n1         10.34  1.66    Male     No   Sun  Dinner     3\n2         21.01  3.50    Male     No   Sun  Dinner     3\n3         23.68  3.31    Male     No   Sun  Dinner     2\n4         24.59  3.61  Female     No   Sun  Dinner     4\n..          ...   ...     ...    ...   ...     ...   ...\n239       29.03  5.92    Male     No   Sat  Dinner     3\n240       27.18  2.00  Female    Yes   Sat  Dinner     2\n241       22.67  2.00    Male    Yes   Sat  Dinner     2\n242       17.82  1.75    Male     No   Sat  Dinner     2\n243       18.78  3.00  Female     No  Thur  Dinner     2\n\n[244 rows x 7 columns]"
+  },
+  {
+    "objectID": "data-exploration/data-exploration.html#basic-visualization",
+    "href": "data-exploration/data-exploration.html#basic-visualization",
+    "title": "Data Exploration",
+    "section": "Basic visualization",
+    "text": "Basic visualization\n\n\n# Create a visualization\nsns.relplot(\n    data=tips,\n    x=\"total_bill\", y=\"tip\", col=\"time\",\n    hue=\"smoker\", style=\"smoker\", size=\"size\",\n)\n\nplt.show()"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education"
+  },
+  {
+    "objectID": "index.html#academic-interests",
+    "href": "index.html#academic-interests",
+    "title": "About Me",
+    "section": "Academic Interests",
+    "text": "Academic Interests"
+  },
+  {
+    "objectID": "about-me/index.html",
+    "href": "about-me/index.html",
+    "title": "About Me",
+    "section": "",
+    "text": "A\n\n\n\n\n\n\n\nB"
+  },
+  {
+    "objectID": "about-me/index.html#education",
+    "href": "about-me/index.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n\n\n\n\nflowchart LR\n  A(Horace Mann School) --&gt; B(Georgetown University)\n  B --&gt; C(The Real World)\n\n\n\n\n\n\n\n\nSchool\nDegree\nYears\n\n\n\n\nGeorgetown University\nM.S., Data Science & Analytics\n2023-2025\n\n\nGeorgetown University\nB.A., Physics & Classics\n2020-2024"
+  },
+  {
+    "objectID": "about-me/index.html#academic-interests",
+    "href": "about-me/index.html#academic-interests",
+    "title": "About Me",
+    "section": "Academic Interests",
+    "text": "Academic Interests"
+  },
+  {
+    "objectID": "about-me/index.html#interests",
+    "href": "about-me/index.html#interests",
+    "title": "About Me",
+    "section": "Interests",
+    "text": "Interests\n\nAcademic\n\nPhysics\n\nElectromagnetism\nElectrical Engineering\nSensors & Digital Electronics\n\nMedical Technology\n\nContinous Glucose Monitors\nInsulin Pumps\nConsumer Biowearables\n\nHistory of the Late Roman Republic\n\nMarcus Porcius Cato Uticensis\nMarcus Tulius Cicero\nGaius Julius Caesar\nLucius Cornelius Sulla\nGaius Marius\n\n\nExtracurricular\n\nGovernment\n\nUS Politics\nInternational Affairs\nScience & Technology Policy\nDefense & National Security\n\nWellness\n\nRunning\nCycling\nRowing\n\nCultural\n\nClassical Art & Architecture\nRenaissance Art & Architecture\nFarmers’ Markets"
+  },
+  {
+    "objectID": "about-me/index.html#continuous-glucose-monitors",
+    "href": "about-me/index.html#continuous-glucose-monitors",
+    "title": "About Me",
+    "section": "Continuous Glucose Monitors",
+    "text": "Continuous Glucose Monitors\nHere are some good informational videos about continuous glucose monitoring systems, which have revolutionized diabetes care & management and are beggining to be used in commerical, non-clinical context."
+  },
+  {
+    "objectID": "about-me/index.html#rowing",
+    "href": "about-me/index.html#rowing",
+    "title": "About Me",
+    "section": "Rowing",
+    "text": "Rowing\nHere’s a video of me rowing in my single scull (a particuarly fun hobby of mine)."
+  },
+  {
+    "objectID": "about-me/index.html#footnotes",
+    "href": "about-me/index.html#footnotes",
+    "title": "About Me",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nM. Tulius Cicero, De Officiis↩︎\nM. Tulius Cicero, Orationum, Pars I↩︎\nPlutarch, Life of Cato Minor, Book 66↩︎"
   }
 ]

@@ -4,17 +4,45 @@ project:
 website:
   title: "DSAN-5000: Project"
   navbar:
+    title: "ESG & Data"
+    search: true
+    logo-href: https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png
+
+    tools: 
+      - icon: github
+        href: https://github.com/anly501/dsan-5000-project-bdools
     left:
       - href: index.qmd
-        text: Home
-      - href: clustering/clustering.qmd
-        text: Clustering
-      - href: eda/eda.ipynb
+        text: About Me
+      - href: https://github.com/anly501/dsan-5000-project-bdools
+        text: Code
+      - href: https://drive.google.com/drive/folders/1-H9c243q2D5CB6wgZD7c40CGSjNJjs4s?usp=drive_link
+        text: Data
+      - href: ./introduction/introduction.ipynb
+        text: Introduction
+      - href: ./data-gathering/data-gathering.ipynb
+        text: Data Gathering
+      - href: ./data-cleaning/data-cleaning.ipynb
+        text: Data Cleaning
+      - href: ./data-exploration/data-exploration.ipynb
         text: Data Exploration
+      - href: ./clustering/clustering.ipynb
+        text: Clustering
+      - href: ./dimensionality-reduction/dimensionality-reduction.ipynb
+        text: Dimensionality Reduction
+
+      - text: "Decision Trees"
+        menu:
+        - href: ./decision-trees/classification/classification.ipynb
+          text: Classification
+        - href: ./decision-trees/regression/regression.ipynb
+          text: Regression
+
+      - href: ./arm/arm.ipynb
+        text: ARM
+      - href: ./conclusions/conclusions.ipynb
+        text: Conclusions
 format:
   html:
-    theme: cosmo
+    theme: Flatly
     toc: true
-
-
-
