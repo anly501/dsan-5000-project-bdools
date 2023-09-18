@@ -38,7 +38,7 @@ website:
         - href: ./decision-trees/regression/regression.ipynb
           text: Regression
 
-      - href: ./ARM/arm.ipynb
+      - href: ./arm/arm.ipynb
         text: ARM
       - href: ./conclusions/conclusions.ipynb
         text: Conclusions

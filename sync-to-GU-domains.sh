@@ -17,4 +17,4 @@
 # IP: 15.204.146.110
 # Password: ]w5J:1639KctoF
 
-rsync -alvr ./DSAN-5000-Website/_site bendoola@15.204.146.110.com:/home/bendoola/public_html/
+rsync -alvr ./DSAN-5000-Website/_site bendoola@gtown3.reclaimhosting.com:/home/bendoola/public_html/
