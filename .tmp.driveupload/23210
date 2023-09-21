@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Introduction</title>
+<title>DSAN-5000: Project - About Me</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,6 +59,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -81,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
@@ -93,27 +96,27 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../introduction/introduction.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./introduction/introduction.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data-gathering/data-gathering.html" rel="" target="">
+    <a class="nav-link" href="./data-gathering/data-gathering.html" rel="" target="">
  <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data-cleaning/data-cleaning.html" rel="" target="">
+    <a class="nav-link" href="./data-cleaning/data-cleaning.html" rel="" target="">
  <span class="menu-text">Data Cleaning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data-exploration/data-exploration.html" rel="" target="">
+    <a class="nav-link" href="./data-exploration/data-exploration.html" rel="" target="">
  <span class="menu-text">Data Exploration</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../clustering/clustering.html" rel="" target="">
+    <a class="nav-link" href="./clustering/clustering.html" rel="" target="">
  <span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../dimensionality-reduction/dimensionality-reduction.html" rel="" target="">
+    <a class="nav-link" href="./dimensionality-reduction/dimensionality-reduction.html" rel="" target="">
  <span class="menu-text">Dimensionality Reduction</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -122,21 +125,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-decision-trees">    
         <li>
-    <a class="dropdown-item" href="../decision-trees/classification/classification.html" rel="" target="">
+    <a class="dropdown-item" href="./decision-trees/classification/classification.html" rel="" target="">
  <span class="dropdown-text">Classification</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../decision-trees/regression/regression.html" rel="" target="">
+    <a class="dropdown-item" href="./decision-trees/regression/regression.html" rel="" target="">
  <span class="dropdown-text">Regression</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../arm/arm.html" rel="" target="">
+    <a class="nav-link" href="./arm/arm.html" rel="" target="">
  <span class="menu-text">ARM</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../conclusions/conclusions.html" rel="" target="">
+    <a class="nav-link" href="./conclusions/conclusions.html" rel="" target="">
  <span class="menu-text">Conclusions</span></a>
   </li>  
 </ul>
@@ -156,13 +159,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><strong>Introduction</strong></a>
+  <li><a href="#ben-doolan" id="toc-ben-doolan" class="nav-link active" data-scroll-target="#ben-doolan"><strong>Ben Doolan</strong></a>
   <ul class="collapse">
-  <li><a href="#context" id="toc-context" class="nav-link" data-scroll-target="#context">Context</a></li>
-  <li><a href="#previous-work" id="toc-previous-work" class="nav-link" data-scroll-target="#previous-work">Previous Work</a></li>
-  <li><a href="#project-scope-and-goals" id="toc-project-scope-and-goals" class="nav-link" data-scroll-target="#project-scope-and-goals">Project Scope and Goals</a></li>
-  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a></li>
+  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
+  <li><a href="#interests" id="toc-interests" class="nav-link" data-scroll-target="#interests"><strong>Interests</strong></a></li>
   </ul></li>
+  <li><a href="#video-library" id="toc-video-library" class="nav-link" data-scroll-target="#video-library">Video Library</a>
+  <ul class="collapse">
+  <li><a href="#continuous-glucose-monitors" id="toc-continuous-glucose-monitors" class="nav-link" data-scroll-target="#continuous-glucose-monitors">Continuous Glucose Monitors</a></li>
+  </ul></li>
+  <li><a href="#guiding-quotes" id="toc-guiding-quotes" class="nav-link" data-scroll-target="#guiding-quotes">Guiding Quotes</a></li>
   </ul>
 </nav>
     </div>
@@ -171,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">About Me</h1>
 </div>
 
 
@@ -186,82 +192,152 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="introduction" class="level1">
-<h1><strong>Introduction</strong></h1>
-<section id="context" class="level2">
-<h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>The advent and evolution of biomedical devices have been crucial in improving the medical technology and advancing healthcare outcomes for patients suffering from chronic illnesses. In my project, I seek to explore the factors affecting the FDA’s approval of such biomedical devices, providing insights into the intricate processes and criteria governing regulatory approvals. I chose this topic because the FDA approval process is a rigorous check on safety and efficacy of the devices, directly impacting the overall healthcare industry as well as the quality of life of 133 million individuals suffering from chronic illnesses in the United States.</p>
-<p>Understanding the FDA approval process is crucial to the funding and development of future generations of biomedical as it ensures that biomedical devices in the market are safe, effective, reliable, and reach consumer markets in an efficient timeframe. A data-driven analysis of the influential factors affecting the success of the approval process will not only demystify the regulatory hurdles but also guide device manufacturers in aligning their research, development, and clinical trials with regulatory expectations, streamlining the approval process, fostering innovation, and expediting the availability of life-enhancing or life-saving devices for patients.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 57.1%;justify-content: center;">
+<p><img src="./about-me/media/headshot.png" class="img-fluid" width="400"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 42.9%;justify-content: center;">
+<p><img src="./about-me/media/ben-doolan-2.jpeg" class="img-fluid" width="300"></p>
+</div>
+</div>
+</div>
+<section id="ben-doolan" class="level1">
+<h1><strong>Ben Doolan</strong></h1>
+<p>Ben Doolan is a senior at Georgetown University, majoring in Physics and Classics, while pursuing a Master of Science in Data Science &amp; Analytics through Georgetown’s accelerated DSAN program. This summer, Ben worked at EY-Parthenon, a management consulting firm, out of their San Francisco office. There, he worked with a large private equity client, helping restructure a portfolio company’s IT spend as part of a technology transformation. The prior two summers, Ben worked as a data intern at <em>L</em> Catterton, a consumer focused private equity firm. In the future, Ben hopes to explore the intersection of physics, statistics, medicine, biology, and computer science in their application to the life sciences. In particular, he’d to examine how statistical and machine learning techniques can be applied to improve the predictive capabilities of Continuous Glucose Monitors for Type 1 Diabetes management. In his free time, Ben enjoy reading, visiting museums, and discussing politics and current affairs.</p>
+<section id="education" class="level2">
+<h2 class="anchored" data-anchor-id="education">Education</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A(Horace Mann School) --&gt; B(Georgetown University)
+  B --&gt; C(The Real World)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table">
+<thead>
+<tr class="header">
+<th>School</th>
+<th>Degree</th>
+<th>Years</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Georgetown University</td>
+<td>M.S., <em>Data Science &amp; Analytics</em></td>
+<td>2023-2025</td>
+</tr>
+<tr class="even">
+<td>Georgetown University</td>
+<td>B.A., <em>Physics &amp; Classics</em></td>
+<td>2020-2024</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="previous-work" class="level2">
-<h2 class="anchored" data-anchor-id="previous-work">Previous Work</h2>
-<p>Historically, researchers have provided varied perspectives on regulatory parameters, clinical efficacy, safety protocols, and ethical considerations of the FDA approval process, pondering the balance between the stringent standards of FDA against the necessity to uphold patient safety. While the rigorous processes may stifle innovation, it has essential safeguards that protect patients and ensure the quality of biomedical devices. In my project, I will navigate through these diversified viewpoints, synthesizing a cohesive understanding of the predominant factors influencing FDA decisions.</p>
-<p>“An Analysis of Critical Factors in Medical Device Development to Design for FDA”, a 2013 study by Lourdres A. Medina et al., focuses on exploring the pivotal factors and considerations in the medical device development phase that are critical for gaining FDA approval. The study evaluates different aspects of medical device development to identify key components and strategies that can optimize the process of achieving regulatory approval. Medina found that understanding and integrating regulatory requirements from the early development stages, stringent and well-structured clinical trials, and comprehensive documentation are paramount to both success in achieving FDA approval and expediting the approval process.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Additionally, the authors found that procedural measures in research aimed towards ensuring safety and efficacy of devices through rigorous testing and quality assurance also significantly impacted the approval process. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Additionally, in his thesis “Factors Influencing FDA Clearance Time for Medical Device 510(k) Applications,” Andrew J. Koert assessed and analyzed the distinct elements and factors that influence the amount of time taken by the FDA to clear medical device 510(k) applications. The research identified several factors influencing clearance times, including the type of device, the complexity of the device, the quality of the submission, and the workload of the reviewing division within the FDA. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-</section>
-<section id="project-scope-and-goals" class="level2">
-<h2 class="anchored" data-anchor-id="project-scope-and-goals">Project Scope and Goals</h2>
-<p>In this project, I will explore the intricacies of FDA approval processes, examining various device categories, technological innovations, company backgrounds, and clinical trial designs from the perspective of a data scientist to assess what impact these factors have on the speed and success of devices in the FDA approval process. I hypothesize that FDA approval is influenced by a multitude of factors including, but not limited to:</p>
-<p><strong>Clinical Trial</strong></p>
+<section id="interests" class="level2">
+<h2 class="anchored" data-anchor-id="interests"><strong>Interests</strong></h2>
 <ul>
-<li>Number of participants</li>
-<li>Trial duration</li>
-<li>Outcome measures (e.g., efficacy, safety, adverse events)</li>
-<li>P-values and confidence intervals</li>
-</ul>
-<p><strong>Financial</strong></p>
+<li><strong>Academic</strong>
 <ul>
-<li>Amount of funding received for research, development, and clinical trials</li>
-<li>Total Addressable Market (TAM)</li>
-<li>Developmental Timeline
+<li>Physics
 <ul>
-<li>Duration of each development phase</li>
-<li>Time spent in the regulatory approval process</li>
+<li>Electromagnetism</li>
+<li>Electrical Engineering</li>
+<li>Sensors &amp; Digital Electronics</li>
+</ul></li>
+<li>Medical Technology
+<ul>
+<li>Continous Glucose Monitors</li>
+<li>Insulin Pumps</li>
+<li>Consumer Biowearables</li>
+</ul></li>
+<li>History of the Late Roman Republic
+<ul>
+<li>Marcus Porcius Cato Uticensis</li>
+<li>Marcus Tulius Cicero</li>
+<li>Gaius Julius Caesar</li>
+<li>Lucius Cornelius Sulla</li>
+<li>Gaius Marius</li>
+</ul></li>
+</ul></li>
+<li><strong>Extracurricular</strong>
+<ul>
+<li>Government
+<ul>
+<li>US Politics</li>
+<li>International Affairs</li>
+<li>Science &amp; Technology Policy</li>
+<li>Defense &amp; National Security</li>
+</ul></li>
+<li>Wellness
+<ul>
+<li>Running</li>
+<li>Cycling</li>
+<li>Rowing</li>
+</ul></li>
+<li>Cultural
+<ul>
+<li>Classical Art &amp; Architecture</li>
+<li>Renaissance Art &amp; Architecture</li>
+<li>Farmers’ Markets</li>
+</ul></li>
 </ul></li>
 </ul>
-<p><strong>Company Experience</strong></p>
-<ul>
-<li>Number of previously approved devices by the company</li>
-<li>Number of failed approval attempts</li>
-</ul>
-<p><strong>Device Features</strong></p>
-<ul>
-<li>Number of components</li>
-<li>Dimensions and weight</li>
-<li>Device Usability</li>
-</ul>
-<p><strong>Market Dynamics</strong></p>
-<ul>
-<li>Number of similar devices in the market</li>
-<li>Market share of similar devices</li>
-</ul>
 </section>
-<section id="research-questions" class="level2">
-<h2 class="anchored" data-anchor-id="research-questions">Research Questions</h2>
-<ol type="1">
-<li>How do clinical trial designs and outcomes impact FDA approval?</li>
-<li>Does the type of biomedical device influence the likelihood of gaining approval?</li>
-<li>Is there a correlation between the innovativeness of a device and its approval chances?</li>
-<li>How does the financial standing of the manufacturing company affect FDA decisions?</li>
-<li>Do companies with prior approved devices have higher chances of subsequent approvals?</li>
-<li>How significant is adherence to ethical standards in gaining FDA approval?</li>
-<li>Do devices addressing unmet medical needs have an expedited approval process?</li>
-<li>How do adverse event reports during trials impact the final approval decision?</li>
-<li>Is there a discernible difference in approval rates between large and small-scale companies?</li>
-<li>How does the FDA’s scrutiny level vary across different categories of biomedical devices?</li>
-</ol>
-<p>By addressing these questions, I seek to offer a detailed report on the factors impacting FDA approval of biomedical devices. Performing a rigorous, data-driven analysis of these factors is essential to enhance the transparency of regulatory processes, facilitating a more straightforward path for researchers to develop for groundbreaking biomedical devices, improving the quality of patient care and furthering the bounds of the healthcare industry.</p>
+</section>
+<section id="video-library" class="level1">
+<h1>Video Library</h1>
+<section id="continuous-glucose-monitors" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-glucose-monitors">Continuous Glucose Monitors</h2>
+<p>Here are some good informational videos about continuous glucose monitoring systems, which have revolutionized diabetes care &amp; management and are beginning to be used in commerical, non-clinical context.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/glgRHqT787Y" title="CGM Technology Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1FecOjMsgMw" title="Sensing Mechanism Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/nYy1zEHvXZ4" title="Commercialization of CGMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="guiding-quotes" class="level1">
+<h1>Guiding Quotes</h1>
+<blockquote class="blockquote">
+<p>There are, on the other hand, two kinds of injustice — the one, on the part of those who inflict wrong, the other on the part of those who, when they can, do not shield from wrong those upon whom it is being inflicted.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>True law is right reason in agreement with nature; it is of universal application, unchanging and everlasting; it summons to duty by its commands, and averts from wrongdoing by its prohibitions. And it does not lay its commands or prohibitions upon good men in vain, though neither have any effect on the wicked.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>History, in truth, bears witness to time, is the illuminator of reality, the vitality of remembrance, the guide of life, the messenger of bygone days.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>The cause and principle of all Cato’s actions, as well as of his consistency in those actions, was a strong bent to uphold righteousness by any and every means, and a vehement and ardent passion for distinction, not for his own sake, but for the sake of the city, <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+</blockquote>
 
 
-</section>
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Medina et al.&nbsp;(2012, August). An analysis of critical factors in medical device development to design for FDA. In <em>International Design Engineering Technical Conferences and Computers and Information in Engineering Conference</em> (Vol. 45042, pp.&nbsp;591-599). American Society of Mechanical Engineers.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>ibid.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Koert, Andrew J. <em>Factors influencing FDA clearance time for medical device 510 (k)</em>. Diss. Massachusetts Institute of Technology, 2010.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>M. Tulius Cicero, <em>De Officiis</em><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>M. Tulius Cicero, <em>De Re Publica</em><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>M. Tulius Cicero, <em>De Oratore</em><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Plutarch, <em>Life of Cato Minor</em><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

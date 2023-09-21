@@ -67,7 +67,7 @@
     "href": "introduction/introduction.html#footnotes",
     "title": "Introduction",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nMedina et al. (2012, August). An analysis of critical factors in medical device development to design for FDA. In International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (Vol. 45042, pp. 591-599). American Society of Mechanical Engineers.↩︎\nibid.↩︎\nKoert, Andrew J. Factors influencing FDA clearance time for medical device 510 (k). Diss. Massachusetts Institute of Technology, 2010.↩︎"
+    "text": "Footnotes\n\n\n@medina2012analysis↩︎\n@medina2012analysis↩︎\n@koert2010factors↩︎"
   },
   {
     "objectID": "data-exploration/data-exploration.html",

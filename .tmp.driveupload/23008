@@ -259,9 +259,9 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Medina et al.&nbsp;(2012, August). An analysis of critical factors in medical device development to design for FDA. In <em>International Design Engineering Technical Conferences and Computers and Information in Engineering Conference</em> (Vol. 45042, pp.&nbsp;591-599). American Society of Mechanical Engineers.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>ibid.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Koert, Andrew J. <em>Factors influencing FDA clearance time for medical device 510 (k)</em>. Diss. Massachusetts Institute of Technology, 2010.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><span class="citation" data-cites="medina2012analysis">@medina2012analysis</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="citation" data-cites="medina2012analysis">@medina2012analysis</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><span class="citation" data-cites="koert2010factors">@koert2010factors</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
