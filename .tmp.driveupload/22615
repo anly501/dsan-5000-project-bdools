@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Introduction</title>
+<title>DSAN-5000: Project - Conclusions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../introduction/introduction.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../introduction/introduction.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">ARM</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../conclusions/conclusions.html" rel="" target="">
+    <a class="nav-link active" href="../conclusions/conclusions.html" rel="" target="" aria-current="page">
  <span class="menu-text">Conclusions</span></a>
   </li>  
 </ul>
@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>Introduction</strong></h1>
+<h1 class="title"><strong>Conclusions</strong></h1>
 </div>
 
 
@@ -174,61 +174,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>Context</strong></p>
-<p>The advent and evolution of biomedical devices have been crucial in improving the medical technology and advancing healthcare outcomes for patients suffering from chronic illnesses. In my project, I seek to explore the factors affecting the FDA’s approval of such biomedical devices, providing insights into the intricate processes and criteria governing regulatory approvals. I chose this topic because the FDA approval process is a rigorous check on safety and efficacy of the devices, directly impacting the overall healthcare industry as well as the quality of life of 133 million individuals suffering from chronic illnesses in the United States.</p>
-<p>Understanding the FDA approval process is crucial to the funding and development of future generations of biomedical as it ensures that biomedical devices in the market are safe, effective, reliable, and reach consumer markets in an efficient timeframe. A data-driven analysis of the influential factors affecting the success of the approval process will not only demystify the regulatory hurdles but also guide device manufacturers in aligning their research, development, and clinical trials with regulatory expectations, streamlining the approval process, fostering innovation, and expediting the availability of life-enhancing or life-saving devices for patients.</p>
-<p><strong>Previous Work</strong></p>
-<p>Historically, researchers have provided varied perspectives on regulatory parameters, clinical efficacy, safety protocols, and ethical considerations of the FDA approval process, pondering the balance between the stringent standards of FDA against the necessity to uphold patient safety. While the rigorous processes may stifle innovation, it has essential safeguards that protect patients and ensure the quality of biomedical devices. In my project, I will navigate through these diversified viewpoints, synthesizing a cohesive understanding of the predominant factors influencing FDA decisions.</p>
-<p>“An Analysis of Critical Factors in Medical Device Development to Design for FDA”, a 2013 study by Lourdres A. Medina et al., focuses on exploring the pivotal factors and considerations in the medical device development phase that are critical for gaining FDA approval. The study evaluates different aspects of medical device development to identify key components and strategies that can optimize the process of achieving regulatory approval. Medina found that understanding and integrating regulatory requirements from the early development stages, stringent and well-structured clinical trials, and comprehensive documentation are paramount to both success in achieving FDA approval and expediting the approval process. Additionally, the authors found that procedural measures in research aimed towards ensuring safety and efficacy of devices through rigorous testing and quality assurance also significantly impacted the approval process. Additionally, in his thesis “Factors Influencing FDA Clearance Time for Medical Device 510(k) Applications,” Andrew J. Koert assessed and analyzed the distinct elements and factors that influence the amount of time taken by the FDA to clear medical device 510(k) applications. The research identified Several factors influencing clearance times, including the type of device, the complexity of the device, the quality of the submission, and the workload of the reviewing division within the FDA.</p>
-<p><strong>Project Scope and Goals</strong></p>
-<p>In this project, I will explore the intricacies of FDA approval processes, examining various device categories, technological innovations, company backgrounds, and clinical trial designs from the perspective of a data scientist to assess what impact these factors have on the speed and success of devices in the FDA approval process. I hypothesize that FDA approval is influenced by a multitude of factors including, but not limited to:</p>
-<p>Clinical Trial</p>
-<ul>
-<li>Number of participants</li>
-<li>Trial duration</li>
-<li>Outcome measures (e.g., efficacy, safety, adverse events)</li>
-<li>P-values and confidence intervals</li>
-</ul>
-<p>Financial</p>
-<ul>
-<li>Amount of funding received for research, development, and clinical trials</li>
-<li>Total Addressable Market (TAM)</li>
-<li>Developmental Timeline
-<ul>
-<li>Duration of each development phase</li>
-<li>Time spent in the regulatory approval process</li>
-</ul></li>
-</ul>
-<p>Company Experience</p>
-<ul>
-<li>Number of previously approved devices by the company</li>
-<li>Number of failed approval attempts</li>
-</ul>
-<p>Device Features</p>
-<ul>
-<li>Number of components</li>
-<li>Dimensions and weight</li>
-<li>Device Usability</li>
-</ul>
-<p>Market Dynamics</p>
-<ul>
-<li>Number of similar devices in the market</li>
-<li>Market share of similar devices</li>
-</ul>
-<p><strong>Research Questions</strong></p>
-<ol type="1">
-<li>How do clinical trial designs and outcomes impact FDA approval?</li>
-<li>Does the type of biomedical device influence the likelihood of gaining approval?</li>
-<li>Is there a correlation between the innovativeness of a device and its approval chances?</li>
-<li>How does the financial standing of the manufacturing company affect FDA decisions?</li>
-<li>Do companies with prior approved devices have higher chances of subsequent approvals?</li>
-<li>How significant is adherence to ethical standards in gaining FDA approval?</li>
-<li>Do devices addressing unmet medical needs have an expedited approval process?</li>
-<li>How do adverse event reports during trials impact the final approval decision?</li>
-<li>Is there a discernible difference in approval rates between large and small-scale companies?</li>
-<li>How does the FDA’s scrutiny level vary across different categories of biomedical devices?</li>
-</ol>
-<p>By addressing these questions, I seek to offer a detailed report on the factors impacting FDA approval of biomedical devices. Performing a rigorous, data-driven analysis of these factors is essential to enhance the transparency of regulatory processes, facilitating a more straightforward path for researchers to develop for groundbreaking biomedical devices, improving the quality of patient care and furthering the bounds of the healthcare industry.</p>
 
 
 

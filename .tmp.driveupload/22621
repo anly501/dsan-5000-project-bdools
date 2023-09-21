@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - ARM</title>
+<title>DSAN-5000: Project - Data Cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data-cleaning/data-cleaning.html" rel="" target="">
+    <a class="nav-link active" href="../data-cleaning/data-cleaning.html" rel="" target="" aria-current="page">
  <span class="menu-text">Data Cleaning</span></a>
   </li>  
   <li class="nav-item">
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="../arm/arm.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../arm/arm.html" rel="" target="">
  <span class="menu-text">ARM</span></a>
   </li>  
   <li class="nav-item">
@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>ARM</strong></h1>
+<h1 class="title"><strong>Data Cleaning</strong></h1>
 </div>
 
 
