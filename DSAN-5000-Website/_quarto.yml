@@ -4,6 +4,7 @@ project:
 website:
   title: "DSAN-5000: Project"
   navbar:
+    title: "bed35"
     search: true
     logo-href: https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png
 
