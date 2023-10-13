@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 b6af73ab1d5e489b9c3a0f725f5ce3e862e0e7c1 DSAN <dsan@Bens-MacBook-Pro-55.local> 1694824779 -0400	clone: from https://github.com/anly501/dsan-5000-project-bdools.git
+b6af73ab1d5e489b9c3a0f725f5ce3e862e0e7c1 f5d97c7f35735efd492e3f799d91de759281d130 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695052623 -0400	commit: Updated file structure/layout and modified _quarto.yml and index.qmd in about-me folder
+f5d97c7f35735efd492e3f799d91de759281d130 ea6fad0d095bb095a51311ef15613b7e1dab78a7 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695073868 -0400	commit: Adding modification to sync-to-GU-domains.sh
+ea6fad0d095bb095a51311ef15613b7e1dab78a7 fbcc50fa9dfa100f8ce11af79c482fa18d97d268 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695074375 -0400	commit: Modified index.qmd filepath in YAML and adjusted arm.ipynb path in YAML
+fbcc50fa9dfa100f8ce11af79c482fa18d97d268 aa2711c2cf8e61531b0475801e3c22a79e98e9fc DSAN <dsan@Bens-MacBook-Pro-55.local> 1695075600 -0400	commit: fixed bug in sync-to-GU-domains shell script
+aa2711c2cf8e61531b0475801e3c22a79e98e9fc 4870ceaad9c849a04a2bebbe484866de56094c67 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695079690 -0400	commit: Added quotes to about me page and changed wepage title
+4870ceaad9c849a04a2bebbe484866de56094c67 f935aa1353cec3c71caffdc1af9496600fe57908 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695326047 -0400	commit: Added introduction section
+f935aa1353cec3c71caffdc1af9496600fe57908 80677fe68589f0bbf6998d95d4ff52c9b584d80d DSAN <dsan@Bens-MacBook-Pro-55.local> 1695328557 -0400	commit: Added references to intro section
+80677fe68589f0bbf6998d95d4ff52c9b584d80d 5ccbc7c209479e1ab404087e7641a40331ffdc38 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695328819 -0400	commit: removed title from Menu bar & stylistic change to intro section
+5ccbc7c209479e1ab404087e7641a40331ffdc38 e7ecc798cc6d0f521ff4de90ce95f1f3db25a412 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695329267 -0400	commit: Pushing addition of netid on site
+e7ecc798cc6d0f521ff4de90ce95f1f3db25a412 ed7f3f304fdd7b7b8550cbe3401a9c465846a077 DSAN <dsan@Bens-MacBook-Pro-55.local> 1695329415 -0400	commit: Added net-id to index.qmd/html
+ed7f3f304fdd7b7b8550cbe3401a9c465846a077 c7cceb32b06c43694d06056bad5c02ca89a07c88 DSAN <dsan@Bens-MacBook-Pro-55.local> 1697076224 -0400	commit: Synching all my data cleaning from past 3 weeks
+c7cceb32b06c43694d06056bad5c02ca89a07c88 f9e2d9f949b67245d3e44ad65484768de4704ebf DSAN <dsan@Bens-MacBook-Pro-55.local> 1697078795 -0400	commit: removing large file
+f9e2d9f949b67245d3e44ad65484768de4704ebf fb407e40b02889a195c7a4303db1af36edfacb35 DSAN <dsan@Bens-MacBook-Pro-55.local> 1697110301 -0400	commit: Ensuring full push
+fb407e40b02889a195c7a4303db1af36edfacb35 e48e4ad50437b776ac8162515faa54fe72b281b1 DSAN <dsan@Bens-MacBook-Pro-55.local> 1697189407 -0400	commit: Additional data cleaning
