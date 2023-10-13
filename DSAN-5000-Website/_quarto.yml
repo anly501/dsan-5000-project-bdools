@@ -45,3 +45,4 @@ format:
   html:
     theme: Flatly
     toc: true
+    embed-resources: true
