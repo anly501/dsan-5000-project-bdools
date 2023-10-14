@@ -1,0 +1,58 @@
+{
+    "status": "ok",
+    "totalResults": 4,
+    "articles": [
+        {
+            "source": {
+                "id": "cbs-news",
+                "name": "CBS News"
+            },
+            "author": null,
+            "title": "Thousands got these knee or hip replacements. Then, patients say, parts began to fail.",
+            "description": "In a torrent of lawsuits, patients accuse Florida device maker Exactech of hiding knee and hip implant defects for years. The company denies the allegations.",
+            "url": "https://www.cbsnews.com/news/exactech-knee-hip-replacements-lawsuits/",
+            "urlToImage": "https://assets1.cbsnewsstatic.com/hub/i/r/2023/10/07/d7c6f2e1-be36-4be7-84b5-eabfca79a7dc/thumbnail/1200x630/2900e258181c3f3de9a903ff6b9396eb/exactech01.jpg?v=69042d5753ca4b526d6a54f60ee177ca",
+            "publishedAt": "2023-10-10T09:00:06Z",
+            "content": "Ron Irby expected the artificial knee implanted in his right leg in September 2018 would last two decades \u2014 perhaps longer.\r\nYet in just three years, the Optetrak implant manufactured by Exactech in \u2026 [+20730 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "GlobeNewswire"
+            },
+            "author": "Research and Markets",
+            "title": "Endoprosthesis Market Set to Surge, Fueled by 3D Printing Innovations and Rising Orthopedic Disease Cases",
+            "description": "Dublin, Sept.  26, 2023  (GLOBE NEWSWIRE) -- The \"Global Endoprosthesis Market 2023-2027\" report has been added to  ResearchAndMarkets.com's offering. ...",
+            "url": "https://www.globenewswire.com/news-release/2023/09/26/2749388/28124/en/Endoprosthesis-Market-Set-to-Surge-Fueled-by-3D-Printing-Innovations-and-Rising-Orthopedic-Disease-Cases.html",
+            "urlToImage": "https://ml.globenewswire.com/Resource/Download/908fb457-7f8e-4a08-9081-5565e3dfb3d7",
+            "publishedAt": "2023-09-26T11:53:00Z",
+            "content": "Dublin, Sept. 26, 2023 (GLOBE NEWSWIRE) -- The \"Global Endoprosthesis Market 2023-2027\" report has been added to ResearchAndMarkets.com's offering.\r\nThe global endoprosthesis market is poised for rem\u2026 [+4740 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "PRNewswire"
+            },
+            "author": null,
+            "title": "World-Renowned Orthopaedics Pioneer Joseph D. Zuckerman, MD, Receives Lifetime Achievement Award",
+            "description": "STAMFORD, Conn., Sept. 20, 2023 /PRNewswire/ -- Orthopaedic Summit: Evolving Techniques (OSET), the non-profit organization dedicated to educational advancement in orthopaedics, together with medical device manufacturer Exactech, Inc., celebrates Joseph D. Zu\u2026",
+            "url": "https://www.prnewswire.com/news-releases/world-renowned-orthopaedics-pioneer-joseph-d-zuckerman-md-receives-lifetime-achievement-award-301933635.html",
+            "urlToImage": "https://mma.prnewswire.com/media/2216397/OSET_Joseph_Zuckerman_MD.jpg?p=facebook",
+            "publishedAt": "2023-09-20T15:13:00Z",
+            "content": "STAMFORD, Conn., Sept. 20, 2023 /PRNewswire/ --\u00a0Orthopaedic Summit: Evolving Techniques (OSET), the non-profit organization dedicated to educational advancement in orthopaedics, together with medical\u2026 [+4428 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "GlobeNewswire"
+            },
+            "author": "Fortune Business Insights",
+            "title": "Hip Replacement Market Size to Surpass USD 10.79 billion by 2030, exhibiting a CAGR of 4.9%",
+            "description": "As per the report by Fortune Business Insights, the global Hip Replacement Market size is projected to reach USD 10.79 billion in 2030, at a CAGR of 4.9% during the forecast period, 2023-2030 As per the report by Fortune Business Insights, the global Hip Repl\u2026",
+            "url": "https://www.globenewswire.com/news-release/2023/09/20/2746367/0/en/Hip-Replacement-Market-Size-to-Surpass-USD-10-79-billion-by-2030-exhibiting-a-CAGR-of-4-9.html",
+            "urlToImage": "https://ml.globenewswire.com/Resource/Download/05408ba1-26b1-4fdd-8f48-1af4df373348",
+            "publishedAt": "2023-09-20T11:49:00Z",
+            "content": "Pune, India, Sept. 20, 2023 (GLOBE NEWSWIRE) -- The Hip Replacement Market\r\n size was valued at USD 7.42 billion in 2022 and market is projected to reach USD 10.79 billion by 2030, recording a CAGR o\u2026 [+6669 chars]"
+        }
+    ]
+}

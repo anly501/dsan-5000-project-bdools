@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "DSAN-5000: Project"
+  title: DSAN-5000: Project
   navbar:
     search: true
     logo-href: https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png
@@ -21,8 +21,14 @@ website:
         text: Introduction
       - href: ./data-gathering/data-gathering.ipynb
         text: Data Gathering
-      - href: ./data-cleaning/data-cleaning.ipynb
-        text: Data Cleaning
+
+      - text: Data Cleaning
+      - menu: 
+        - href: ./data-cleaning/data-cleaning_python.ipynb
+          text: Python
+        - href: ./data-cleaning/data-cleaning_r.qmd
+          text: R
+
       - href: ./data-exploration/data-exploration.ipynb
         text: Data Exploration
       - href: ./clustering/clustering.ipynb
@@ -30,7 +36,7 @@ website:
       - href: ./dimensionality-reduction/dimensionality-reduction.ipynb
         text: Dimensionality Reduction
 
-      - text: "Decision Trees"
+      - text: Decision Trees
         menu:
         - href: ./decision-trees/classification/classification.ipynb
           text: Classification

@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ben Doolan">
+
+<title>DSAN-5000: Project - Data Cleaning in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png">
+    <span class="navbar-title">DSAN-5000: Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-bdools" rel="" target="">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://drive.google.com/drive/folders/1-H9c243q2D5CB6wgZD7c40CGSjNJjs4s?usp=drive_link" rel="" target="">
+ <span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../introduction/introduction.html" rel="" target="">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../data-gathering/data-gathering.html" rel="" target="">
+ <span class="menu-text">Data Gathering</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">Data Cleaning</span></li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../data-cleaning/data-cleaning_python.html" rel="" target="">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data-cleaning/data-cleaning_r.html" rel="" target="">
+ <span class="dropdown-text">R</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../data-exploration/data-exploration.html" rel="" target="">
+ <span class="menu-text">Data Exploration</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../clustering/clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../dimensionality-reduction/dimensionality-reduction.html" rel="" target="">
+ <span class="menu-text">Dimensionality Reduction</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decision-trees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Decision Trees</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-decision-trees">    
+        <li>
+    <a class="dropdown-item" href="../decision-trees/classification/classification.html" rel="" target="">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../decision-trees/regression/regression.html" rel="" target="">
+ <span class="dropdown-text">Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../arm/arm.html" rel="" target="">
+ <span class="menu-text">ARM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../conclusions/conclusions.html" rel="" target="">
+ <span class="menu-text">Conclusions</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <a href="https://github.com/anly501/dsan-5000-project-bdools" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#analytical-dataframe-cleaning" id="toc-analytical-dataframe-cleaning" class="nav-link active" data-scroll-target="#analytical-dataframe-cleaning"><strong>Analytical Dataframe Cleaning</strong></a>
+  <ul class="collapse">
+  <li><a href="#summarzing-nulls-removal" id="toc-summarzing-nulls-removal" class="nav-link" data-scroll-target="#summarzing-nulls-removal"><strong>Summarzing nulls removal</strong></a></li>
+  </ul></li>
+  <li><a href="#r-edgar-package-api" id="toc-r-edgar-package-api" class="nav-link" data-scroll-target="#r-edgar-package-api"><strong>R edgar package API</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Cleaning in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ben Doolan </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="analytical-dataframe-cleaning" class="level1">
+<h1><strong>Analytical Dataframe Cleaning</strong></h1>
+<p>Here, I am planning to make use of tidyverse and naniar to clean up the data and visualize the nulls. I’ll start by loading in the data and the libraries I’ll need. First, I’m going to replace all the blank string cells, ““, with NA/NaN values. Then, I’ll use the <code>naniar</code> library to visualize the nulls in the dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.3     ✔ stringr   1.5.0
+✔ lubridate 1.9.3     ✔ tibble    3.2.1
+✔ purrr     1.0.2     ✔ tidyr     1.3.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>analytical_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./outputs/analytical_df_python_to_r.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 751 Columns: 23
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (15): advisory_committee_description, statement_or_summary, product_cod...
+dbl   (6): CIK, financial_year, GrossProfit, CostsAndExpenses, SellingGenera...
+lgl   (1): expedited_review_flag
+date  (1): date_received
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(<span class="fu">glimpse</span>(analytical_df)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 751
+Columns: 23
+$ advisory_committee_description         &lt;chr&gt; "Orthopedic", "Unknown", "Ortho…
+$ statement_or_summary                   &lt;chr&gt; "Summary", "Summary", "Summary"…
+$ product_code                           &lt;chr&gt; "KWQ", "MRW", "KWQ", "NKB", "MR…
+$ zip_code                               &lt;chr&gt; "19403", "19403", "19403", "194…
+$ decision_code                          &lt;chr&gt; "SESE", "SESE", "SESE", "SESE",…
+$ country_code                           &lt;chr&gt; "US", "US", "US", "US", "US", "…
+$ device_name                            &lt;chr&gt; "TRUSS THORACOLUMBAR PLATE SYST…
+$ advisory_committee                     &lt;chr&gt; "OR", NA, "OR", "OR", NA, "OR",…
+$ expedited_review_flag                  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA,…
+$ k_number                               &lt;chr&gt; "K092108", "K090952", "K092146"…
+$ state                                  &lt;chr&gt; "PA", "PA", "PA", "PA", "PA", "…
+$ date_received                          &lt;date&gt; 2009-07-14, 2009-04-03, 2009-0…
+$ review_advisory_committee              &lt;chr&gt; "OR", "OR", "OR", "OR", "OR", "…
+$ postal_code                            &lt;chr&gt; "19403", "19403", "19403", "194…
+$ decision_description                   &lt;chr&gt; "Substantially Equivalent", "Su…
+$ clearance_type                         &lt;chr&gt; "Special", "Traditional", "Trad…
+$ CIK                                    &lt;dbl&gt; 1237831, 1237831, 1237831, 1237…
+$ SEC_name                               &lt;chr&gt; "GLOBUS MEDICAL, INC.", "GLOBUS…
+$ financial_year                         &lt;dbl&gt; 2009, 2009, 2009, 2009, 2009, 2…
+$ GrossProfit                            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 363…
+$ CostsAndExpenses                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA,…
+$ SellingGeneralAndAdministrativeExpense &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 187…
+$ ProfitLoss                             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA,…
+# A tibble: 6 × 23
+  advisory_committee_description statement_or_summary product_code zip_code
+  &lt;chr&gt;                          &lt;chr&gt;                &lt;chr&gt;        &lt;chr&gt;   
+1 Orthopedic                     Summary              KWQ          19403   
+2 Unknown                        Summary              MRW          19403   
+3 Orthopedic                     Summary              KWQ          19403   
+4 Orthopedic                     Summary              NKB          19403   
+5 Unknown                        Summary              MRW          19403   
+6 Orthopedic                     Summary              NKB          19403   
+# ℹ 19 more variables: decision_code &lt;chr&gt;, country_code &lt;chr&gt;,
+#   device_name &lt;chr&gt;, advisory_committee &lt;chr&gt;, expedited_review_flag &lt;lgl&gt;,
+#   k_number &lt;chr&gt;, state &lt;chr&gt;, date_received &lt;date&gt;,
+#   review_advisory_committee &lt;chr&gt;, postal_code &lt;chr&gt;,
+#   decision_description &lt;chr&gt;, clearance_type &lt;chr&gt;, CIK &lt;dbl&gt;,
+#   SEC_name &lt;chr&gt;, financial_year &lt;dbl&gt;, GrossProfit &lt;dbl&gt;,
+#   CostsAndExpenses &lt;dbl&gt;, SellingGeneralAndAdministrativeExpense &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>analytical_df <span class="ot">&lt;-</span> analytical_df <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                <span class="sc">~</span><span class="fu">ifelse</span>(. <span class="sc">==</span> <span class="st">""</span>, <span class="cn">NA_character_</span>, .)))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the modified structure of the dataframe</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(<span class="fu">glimpse</span>(analytical_df)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 751
+Columns: 23
+$ advisory_committee_description         &lt;chr&gt; "Orthopedic", "Unknown", "Ortho…
+$ statement_or_summary                   &lt;chr&gt; "Summary", "Summary", "Summary"…
+$ product_code                           &lt;chr&gt; "KWQ", "MRW", "KWQ", "NKB", "MR…
+$ zip_code                               &lt;chr&gt; "19403", "19403", "19403", "194…
+$ decision_code                          &lt;chr&gt; "SESE", "SESE", "SESE", "SESE",…
+$ country_code                           &lt;chr&gt; "US", "US", "US", "US", "US", "…
+$ device_name                            &lt;chr&gt; "TRUSS THORACOLUMBAR PLATE SYST…
+$ advisory_committee                     &lt;chr&gt; "OR", NA, "OR", "OR", NA, "OR",…
+$ expedited_review_flag                  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA,…
+$ k_number                               &lt;chr&gt; "K092108", "K090952", "K092146"…
+$ state                                  &lt;chr&gt; "PA", "PA", "PA", "PA", "PA", "…
+$ date_received                          &lt;date&gt; 2009-07-14, 2009-04-03, 2009-0…
+$ review_advisory_committee              &lt;chr&gt; "OR", "OR", "OR", "OR", "OR", "…
+$ postal_code                            &lt;chr&gt; "19403", "19403", "19403", "194…
+$ decision_description                   &lt;chr&gt; "Substantially Equivalent", "Su…
+$ clearance_type                         &lt;chr&gt; "Special", "Traditional", "Trad…
+$ CIK                                    &lt;dbl&gt; 1237831, 1237831, 1237831, 1237…
+$ SEC_name                               &lt;chr&gt; "GLOBUS MEDICAL, INC.", "GLOBUS…
+$ financial_year                         &lt;dbl&gt; 2009, 2009, 2009, 2009, 2009, 2…
+$ GrossProfit                            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 363…
+$ CostsAndExpenses                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA,…
+$ SellingGeneralAndAdministrativeExpense &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 187…
+$ ProfitLoss                             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA,…
+# A tibble: 6 × 23
+  advisory_committee_description statement_or_summary product_code zip_code
+  &lt;chr&gt;                          &lt;chr&gt;                &lt;chr&gt;        &lt;chr&gt;   
+1 Orthopedic                     Summary              KWQ          19403   
+2 Unknown                        Summary              MRW          19403   
+3 Orthopedic                     Summary              KWQ          19403   
+4 Orthopedic                     Summary              NKB          19403   
+5 Unknown                        Summary              MRW          19403   
+6 Orthopedic                     Summary              NKB          19403   
+# ℹ 19 more variables: decision_code &lt;chr&gt;, country_code &lt;chr&gt;,
+#   device_name &lt;chr&gt;, advisory_committee &lt;chr&gt;, expedited_review_flag &lt;lgl&gt;,
+#   k_number &lt;chr&gt;, state &lt;chr&gt;, date_received &lt;date&gt;,
+#   review_advisory_committee &lt;chr&gt;, postal_code &lt;chr&gt;,
+#   decision_description &lt;chr&gt;, clearance_type &lt;chr&gt;, CIK &lt;dbl&gt;,
+#   SEC_name &lt;chr&gt;, financial_year &lt;dbl&gt;, GrossProfit &lt;dbl&gt;,
+#   CostsAndExpenses &lt;dbl&gt;, SellingGeneralAndAdministrativeExpense &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<section id="summarzing-nulls-removal" class="level2">
+<h2 class="anchored" data-anchor-id="summarzing-nulls-removal"><strong>Summarzing nulls removal</strong></h2>
+<p>Now, let’s see what the data cleaning has done and analyze the distribution of nulls in the dataframe</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> analytical_df <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">nulls =</span> <span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.)), <span class="at">non_nulls =</span> <span class="sc">~</span><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(.)))))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(<span class="fu">glimpse</span>(summary_df)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1
+Columns: 46
+$ advisory_committee_description_nulls             &lt;int&gt; 0
+$ advisory_committee_description_non_nulls         &lt;int&gt; 751
+$ statement_or_summary_nulls                       &lt;int&gt; 8
+$ statement_or_summary_non_nulls                   &lt;int&gt; 743
+$ product_code_nulls                               &lt;int&gt; 0
+$ product_code_non_nulls                           &lt;int&gt; 751
+$ zip_code_nulls                                   &lt;int&gt; 1
+$ zip_code_non_nulls                               &lt;int&gt; 750
+$ decision_code_nulls                              &lt;int&gt; 0
+$ decision_code_non_nulls                          &lt;int&gt; 751
+$ country_code_nulls                               &lt;int&gt; 0
+$ country_code_non_nulls                           &lt;int&gt; 751
+$ device_name_nulls                                &lt;int&gt; 0
+$ device_name_non_nulls                            &lt;int&gt; 751
+$ advisory_committee_nulls                         &lt;int&gt; 12
+$ advisory_committee_non_nulls                     &lt;int&gt; 739
+$ expedited_review_flag_nulls                      &lt;int&gt; 751
+$ expedited_review_flag_non_nulls                  &lt;int&gt; 0
+$ k_number_nulls                                   &lt;int&gt; 0
+$ k_number_non_nulls                               &lt;int&gt; 751
+$ state_nulls                                      &lt;int&gt; 26
+$ state_non_nulls                                  &lt;int&gt; 725
+$ date_received_nulls                              &lt;int&gt; 0
+$ date_received_non_nulls                          &lt;int&gt; 751
+$ review_advisory_committee_nulls                  &lt;int&gt; 0
+$ review_advisory_committee_non_nulls              &lt;int&gt; 751
+$ postal_code_nulls                                &lt;int&gt; 1
+$ postal_code_non_nulls                            &lt;int&gt; 750
+$ decision_description_nulls                       &lt;int&gt; 0
+$ decision_description_non_nulls                   &lt;int&gt; 751
+$ clearance_type_nulls                             &lt;int&gt; 0
+$ clearance_type_non_nulls                         &lt;int&gt; 751
+$ CIK_nulls                                        &lt;int&gt; 0
+$ CIK_non_nulls                                    &lt;int&gt; 751
+$ SEC_name_nulls                                   &lt;int&gt; 0
+$ SEC_name_non_nulls                               &lt;int&gt; 751
+$ financial_year_nulls                             &lt;int&gt; 0
+$ financial_year_non_nulls                         &lt;int&gt; 751
+$ GrossProfit_nulls                                &lt;int&gt; 320
+$ GrossProfit_non_nulls                            &lt;int&gt; 431
+$ CostsAndExpenses_nulls                           &lt;int&gt; 600
+$ CostsAndExpenses_non_nulls                       &lt;int&gt; 151
+$ SellingGeneralAndAdministrativeExpense_nulls     &lt;int&gt; 421
+$ SellingGeneralAndAdministrativeExpense_non_nulls &lt;int&gt; 330
+$ ProfitLoss_nulls                                 &lt;int&gt; 512
+$ ProfitLoss_non_nulls                             &lt;int&gt; 239
+# A tibble: 1 × 46
+  advisory_committee_description…¹ advisory_committee_d…² statement_or_summary…³
+                             &lt;int&gt;                  &lt;int&gt;                  &lt;int&gt;
+1                                0                    751                      8
+# ℹ abbreviated names: ¹​advisory_committee_description_nulls,
+#   ²​advisory_committee_description_non_nulls, ³​statement_or_summary_nulls
+# ℹ 43 more variables: statement_or_summary_non_nulls &lt;int&gt;,
+#   product_code_nulls &lt;int&gt;, product_code_non_nulls &lt;int&gt;,
+#   zip_code_nulls &lt;int&gt;, zip_code_non_nulls &lt;int&gt;, decision_code_nulls &lt;int&gt;,
+#   decision_code_non_nulls &lt;int&gt;, country_code_nulls &lt;int&gt;,
+#   country_code_non_nulls &lt;int&gt;, device_name_nulls &lt;int&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(analytical_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-cleaning_r_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(analytical_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-cleaning_r_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(analytical_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-cleaning_r_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="at">n =</span><span class="dv">23</span>,<span class="fu">miss_var_summary</span>(analytical_df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 23 × 3
+   variable                               n_miss pct_miss
+   &lt;chr&gt;                                   &lt;int&gt;    &lt;dbl&gt;
+ 1 expedited_review_flag                     751  100    
+ 2 CostsAndExpenses                          600   79.9  
+ 3 ProfitLoss                                512   68.2  
+ 4 SellingGeneralAndAdministrativeExpense    421   56.1  
+ 5 GrossProfit                               320   42.6  
+ 6 state                                      26    3.46 
+ 7 advisory_committee                         12    1.60 
+ 8 statement_or_summary                        8    1.07 
+ 9 zip_code                                    1    0.133
+10 postal_code                                 1    0.133
+11 advisory_committee_description              0    0    
+12 product_code                                0    0    
+13 decision_code                               0    0    
+14 country_code                                0    0    
+15 device_name                                 0    0    
+16 k_number                                    0    0    
+17 date_received                               0    0    
+18 review_advisory_committee                   0    0    
+19 decision_description                        0    0    
+20 clearance_type                              0    0    
+21 CIK                                         0    0    
+22 SEC_name                                    0    0    
+23 financial_year                              0    0    </code></pre>
+</div>
+</div>
+<p>Great, it looks like the majority of our nulls come from the SEC Financial data columns, which is to be expected. Since I want to to have pretty complete quantitative data to perform analysis in the future, I want to find a subset of the data with quantitative nulls minimized. It seems like the most overlap exists between the Gross Profit and SG&amp;A columns, so let’s go ahead and look at a subset where any rows with nulls in either of these fields are removed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>analytical_df <span class="ot">&lt;-</span> analytical_df <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(GrossProfit) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(SellingGeneralAndAdministrativeExpense)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>expedited_review_flag)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(analytical_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-cleaning_r_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As you can see, once I’ve eliminated the rows with nulls in Gross Profit and SG&amp;A, I’m left with 249 rows of data. This is a good number to work with, so I’ll finish up my initial data clean there and pass the variable back into python.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(analytical_df, <span class="st">"./outputs/analytical_df_r_to_python.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="r-edgar-package-api" class="level1">
+<h1><strong>R edgar package API</strong></h1>
+<p>Here is a link to the <a href="https://cran.r-project.org/web/packages/edgar/vignettes/edgar.html">edgar package documentation</a>. I will use this package to pull the company description summary from the SEC annual reports.</p>
+<p>Specifically, I will be using the getBusinDescr function to pull the company description summary from the annual reports as a text file. I will then save the text files to a folder called <code>companydescriptions</code>.</p>
+<p>In order to do this I need a vector of the filing range of filing years I am interested in. I will use the <code>financial_year</code> column from the analytical_df to create this vector.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edgar)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"./outputs/SEC-Edgar"</span>)  <span class="do">## sets outputs to outputs folder</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>unique_CIKs <span class="ot">&lt;-</span> analytical_df <span class="sc">%&gt;%</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(CIK) <span class="sc">%&gt;%</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>filing_year_list <span class="ot">&lt;-</span> analytical_df <span class="sc">%&gt;%</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(financial_year) <span class="sc">%&gt;%</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="fu">getBusinDescr</span>(<span class="at">cik.no=</span> unique_CIKs, <span class="at">filing.year =</span> filing_year_list, <span class="at">useragent =</span> <span class="st">"bed35@georgetown.edu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading fillings. Please wait... 
+
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |                                                                      |   1%
+  |                                                                            
+  |=                                                                     |   1%
+  |                                                                            
+  |=                                                                     |   2%
+  |                                                                            
+  |==                                                                    |   2%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |==                                                                    |   4%
+  |                                                                            
+  |===                                                                   |   4%
+  |                                                                            
+  |===                                                                   |   5%
+  |                                                                            
+  |====                                                                  |   5%
+  |                                                                            
+  |====                                                                  |   6%
+  |                                                                            
+  |=====                                                                 |   7%
+  |                                                                            
+  |=====                                                                 |   8%
+  |                                                                            
+  |======                                                                |   8%
+  |                                                                            
+  |======                                                                |   9%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |========                                                              |  11%
+  |                                                                            
+  |========                                                              |  12%
+  |                                                                            
+  |=========                                                             |  12%
+  |                                                                            
+  |=========                                                             |  13%
+  |                                                                            
+  |==========                                                            |  14%
+  |                                                                            
+  |==========                                                            |  15%
+  |                                                                            
+  |===========                                                           |  15%
+  |                                                                            
+  |===========                                                           |  16%
+  |                                                                            
+  |============                                                          |  17%
+  |                                                                            
+  |============                                                          |  18%
+  |                                                                            
+  |=============                                                         |  18%
+  |                                                                            
+  |=============                                                         |  19%
+  |                                                                            
+  |==============                                                        |  19%
+  |                                                                            
+  |==============                                                        |  20%
+  |                                                                            
+  |==============                                                        |  21%
+  |                                                                            
+  |===============                                                       |  21%
+  |                                                                            
+  |===============                                                       |  22%
+  |                                                                            
+  |================                                                      |  22%
+  |                                                                            
+  |================                                                      |  23%
+  |                                                                            
+  |================                                                      |  24%
+  |                                                                            
+  |=================                                                     |  24%
+  |                                                                            
+  |=================                                                     |  25%
+  |                                                                            
+  |==================                                                    |  25%
+  |                                                                            
+  |==================                                                    |  26%
+  |                                                                            
+  |===================                                                   |  26%
+  |                                                                            
+  |===================                                                   |  27%
+  |                                                                            
+  |===================                                                   |  28%
+  |                                                                            
+  |====================                                                  |  28%
+  |                                                                            
+  |====================                                                  |  29%
+  |                                                                            
+  |=====================                                                 |  29%
+  |                                                                            
+  |=====================                                                 |  30%
+  |                                                                            
+  |=====================                                                 |  31%
+  |                                                                            
+  |======================                                                |  31%
+  |                                                                            
+  |======================                                                |  32%
+  |                                                                            
+  |=======================                                               |  32%
+  |                                                                            
+  |=======================                                               |  33%
+  |                                                                            
+  |========================                                              |  34%
+  |                                                                            
+  |========================                                              |  35%
+  |                                                                            
+  |=========================                                             |  35%
+  |                                                                            
+  |=========================                                             |  36%
+  |                                                                            
+  |==========================                                            |  37%
+  |                                                                            
+  |==========================                                            |  38%
+  |                                                                            
+  |===========================                                           |  38%
+  |                                                                            
+  |===========================                                           |  39%
+  |                                                                            
+  |============================                                          |  39%
+  |                                                                            
+  |============================                                          |  40%
+  |                                                                            
+  |=============================                                         |  41%
+  |                                                                            
+  |=============================                                         |  42%
+  |                                                                            
+  |==============================                                        |  42%
+  |                                                                            
+  |==============================                                        |  43%
+  |                                                                            
+  |===============================                                       |  44%
+  |                                                                            
+  |===============================                                       |  45%
+  |                                                                            
+  |================================                                      |  45%
+  |                                                                            
+  |================================                                      |  46%
+  |                                                                            
+  |=================================                                     |  47%
+  |                                                                            
+  |=================================                                     |  48%
+  |                                                                            
+  |==================================                                    |  48%
+  |                                                                            
+  |==================================                                    |  49%
+  |                                                                            
+  |===================================                                   |  49%
+  |                                                                            
+  |===================================                                   |  50%
+  |                                                                            
+  |===================================                                   |  51%
+  |                                                                            
+  |====================================                                  |  51%
+  |                                                                            
+  |====================================                                  |  52%
+  |                                                                            
+  |=====================================                                 |  52%
+  |                                                                            
+  |=====================================                                 |  53%
+  |                                                                            
+  |======================================                                |  54%
+  |                                                                            
+  |======================================                                |  55%
+  |                                                                            
+  |=======================================                               |  55%
+  |                                                                            
+  |=======================================                               |  56%
+  |                                                                            
+  |========================================                              |  57%
+  |                                                                            
+  |========================================                              |  58%
+  |                                                                            
+  |=========================================                             |  58%
+  |                                                                            
+  |=========================================                             |  59%
+  |                                                                            
+  |==========================================                            |  60%
+  |                                                                            
+  |==========================================                            |  61%
+  |                                                                            
+  |===========================================                           |  61%
+  |                                                                            
+  |===========================================                           |  62%
+  |                                                                            
+  |============================================                          |  62%
+  |                                                                            
+  |============================================                          |  63%
+  |                                                                            
+  |=============================================                         |  64%
+  |                                                                            
+  |=============================================                         |  65%
+  |                                                                            
+  |==============================================                        |  65%
+  |                                                                            
+  |==============================================                        |  66%
+  |                                                                            
+  |===============================================                       |  67%
+  |                                                                            
+  |===============================================                       |  68%
+  |                                                                            
+  |================================================                      |  68%
+  |                                                                            
+  |================================================                      |  69%
+  |                                                                            
+  |=================================================                     |  69%
+  |                                                                            
+  |=================================================                     |  70%
+  |                                                                            
+  |=================================================                     |  71%
+  |                                                                            
+  |==================================================                    |  71%
+  |                                                                            
+  |==================================================                    |  72%
+  |                                                                            
+  |===================================================                   |  72%
+  |                                                                            
+  |===================================================                   |  73%
+  |                                                                            
+  |===================================================                   |  74%
+  |                                                                            
+  |====================================================                  |  74%
+  |                                                                            
+  |====================================================                  |  75%
+  |                                                                            
+  |=====================================================                 |  75%
+  |                                                                            
+  |=====================================================                 |  76%
+  |                                                                            
+  |======================================================                |  76%
+  |                                                                            
+  |======================================================                |  77%
+  |                                                                            
+  |======================================================                |  78%
+  |                                                                            
+  |=======================================================               |  78%
+  |                                                                            
+  |=======================================================               |  79%
+  |                                                                            
+  |========================================================              |  79%
+  |                                                                            
+  |========================================================              |  80%
+  |                                                                            
+  |========================================================              |  81%
+  |                                                                            
+  |=========================================================             |  81%
+  |                                                                            
+  |=========================================================             |  82%
+  |                                                                            
+  |==========================================================            |  82%
+  |                                                                            
+  |==========================================================            |  83%
+  |                                                                            
+  |===========================================================           |  84%
+  |                                                                            
+  |===========================================================           |  85%
+  |                                                                            
+  |============================================================          |  85%
+  |                                                                            
+  |============================================================          |  86%
+  |                                                                            
+  |=============================================================         |  87%
+  |                                                                            
+  |=============================================================         |  88%
+  |                                                                            
+  |==============================================================        |  88%
+  |                                                                            
+  |==============================================================        |  89%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |================================================================      |  91%
+  |                                                                            
+  |================================================================      |  92%
+  |                                                                            
+  |=================================================================     |  92%
+  |                                                                            
+  |=================================================================     |  93%
+  |                                                                            
+  |==================================================================    |  94%
+  |                                                                            
+  |==================================================================    |  95%
+  |                                                                            
+  |===================================================================   |  95%
+  |                                                                            
+  |===================================================================   |  96%
+  |                                                                            
+  |====================================================================  |  96%
+  |                                                                            
+  |====================================================================  |  97%
+  |                                                                            
+  |====================================================================  |  98%
+  |                                                                            
+  |===================================================================== |  98%
+  |                                                                            
+  |===================================================================== |  99%
+  |                                                                            
+  |======================================================================|  99%
+  |                                                                            
+  |======================================================================| 100%
+Extracting 'Item 1' section...
+
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |                                                                      |   1%
+  |                                                                            
+  |=                                                                     |   1%
+  |                                                                            
+  |=                                                                     |   2%
+  |                                                                            
+  |==                                                                    |   2%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |==                                                                    |   4%
+  |                                                                            
+  |===                                                                   |   4%
+  |                                                                            
+  |===                                                                   |   5%
+  |                                                                            
+  |====                                                                  |   5%
+  |                                                                            
+  |====                                                                  |   6%
+  |                                                                            
+  |=====                                                                 |   7%
+  |                                                                            
+  |=====                                                                 |   8%
+  |                                                                            
+  |======                                                                |   8%
+  |                                                                            
+  |======                                                                |   9%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |========                                                              |  11%
+  |                                                                            
+  |========                                                              |  12%
+  |                                                                            
+  |=========                                                             |  12%
+  |                                                                            
+  |=========                                                             |  13%
+  |                                                                            
+  |==========                                                            |  14%
+  |                                                                            
+  |==========                                                            |  15%
+  |                                                                            
+  |===========                                                           |  15%
+  |                                                                            
+  |===========                                                           |  16%
+  |                                                                            
+  |============                                                          |  17%
+  |                                                                            
+  |============                                                          |  18%
+  |                                                                            
+  |=============                                                         |  18%
+  |                                                                            
+  |=============                                                         |  19%
+  |                                                                            
+  |==============                                                        |  19%
+  |                                                                            
+  |==============                                                        |  20%
+  |                                                                            
+  |==============                                                        |  21%
+  |                                                                            
+  |===============                                                       |  21%
+  |                                                                            
+  |===============                                                       |  22%
+  |                                                                            
+  |================                                                      |  22%
+  |                                                                            
+  |================                                                      |  23%
+  |                                                                            
+  |================                                                      |  24%
+  |                                                                            
+  |=================                                                     |  24%
+  |                                                                            
+  |=================                                                     |  25%
+  |                                                                            
+  |==================                                                    |  25%
+  |                                                                            
+  |==================                                                    |  26%
+  |                                                                            
+  |===================                                                   |  26%
+  |                                                                            
+  |===================                                                   |  27%
+  |                                                                            
+  |===================                                                   |  28%
+  |                                                                            
+  |====================                                                  |  28%
+  |                                                                            
+  |====================                                                  |  29%
+  |                                                                            
+  |=====================                                                 |  29%
+  |                                                                            
+  |=====================                                                 |  30%
+  |                                                                            
+  |=====================                                                 |  31%
+  |                                                                            
+  |======================                                                |  31%
+  |                                                                            
+  |======================                                                |  32%
+  |                                                                            
+  |=======================                                               |  32%
+  |                                                                            
+  |=======================                                               |  33%
+  |                                                                            
+  |========================                                              |  34%
+  |                                                                            
+  |========================                                              |  35%
+  |                                                                            
+  |=========================                                             |  35%
+  |                                                                            
+  |=========================                                             |  36%
+  |                                                                            
+  |==========================                                            |  37%
+  |                                                                            
+  |==========================                                            |  38%
+  |                                                                            
+  |===========================                                           |  38%
+  |                                                                            
+  |===========================                                           |  39%
+  |                                                                            
+  |============================                                          |  39%
+  |                                                                            
+  |============================                                          |  40%
+  |                                                                            
+  |=============================                                         |  41%
+  |                                                                            
+  |=============================                                         |  42%
+  |                                                                            
+  |==============================                                        |  42%
+  |                                                                            
+  |==============================                                        |  43%
+  |                                                                            
+  |===============================                                       |  44%
+  |                                                                            
+  |===============================                                       |  45%
+  |                                                                            
+  |================================                                      |  45%
+  |                                                                            
+  |================================                                      |  46%
+  |                                                                            
+  |=================================                                     |  47%
+  |                                                                            
+  |=================================                                     |  48%
+  |                                                                            
+  |==================================                                    |  48%
+  |                                                                            
+  |==================================                                    |  49%
+  |                                                                            
+  |===================================                                   |  49%
+  |                                                                            
+  |===================================                                   |  50%
+  |                                                                            
+  |===================================                                   |  51%
+  |                                                                            
+  |====================================                                  |  51%
+  |                                                                            
+  |====================================                                  |  52%
+  |                                                                            
+  |=====================================                                 |  52%
+  |                                                                            
+  |=====================================                                 |  53%
+  |                                                                            
+  |======================================                                |  54%
+  |                                                                            
+  |======================================                                |  55%
+  |                                                                            
+  |=======================================                               |  55%
+  |                                                                            
+  |=======================================                               |  56%
+  |                                                                            
+  |========================================                              |  57%
+  |                                                                            
+  |========================================                              |  58%
+  |                                                                            
+  |=========================================                             |  58%
+  |                                                                            
+  |=========================================                             |  59%
+  |                                                                            
+  |==========================================                            |  60%
+  |                                                                            
+  |==========================================                            |  61%
+  |                                                                            
+  |===========================================                           |  61%
+  |                                                                            
+  |===========================================                           |  62%
+  |                                                                            
+  |============================================                          |  62%
+  |                                                                            
+  |============================================                          |  63%
+  |                                                                            
+  |=============================================                         |  64%
+  |                                                                            
+  |=============================================                         |  65%
+  |                                                                            
+  |==============================================                        |  65%
+  |                                                                            
+  |==============================================                        |  66%
+  |                                                                            
+  |===============================================                       |  67%
+  |                                                                            
+  |===============================================                       |  68%
+  |                                                                            
+  |================================================                      |  68%
+  |                                                                            
+  |================================================                      |  69%
+  |                                                                            
+  |=================================================                     |  69%
+  |                                                                            
+  |=================================================                     |  70%
+  |                                                                            
+  |=================================================                     |  71%
+  |                                                                            
+  |==================================================                    |  71%
+  |                                                                            
+  |==================================================                    |  72%
+  |                                                                            
+  |===================================================                   |  72%
+  |                                                                            
+  |===================================================                   |  73%
+  |                                                                            
+  |===================================================                   |  74%
+  |                                                                            
+  |====================================================                  |  74%
+  |                                                                            
+  |====================================================                  |  75%
+  |                                                                            
+  |=====================================================                 |  75%
+  |                                                                            
+  |=====================================================                 |  76%
+  |                                                                            
+  |======================================================                |  76%
+  |                                                                            
+  |======================================================                |  77%
+  |                                                                            
+  |======================================================                |  78%
+  |                                                                            
+  |=======================================================               |  78%
+  |                                                                            
+  |=======================================================               |  79%
+  |                                                                            
+  |========================================================              |  79%
+  |                                                                            
+  |========================================================              |  80%
+  |                                                                            
+  |========================================================              |  81%
+  |                                                                            
+  |=========================================================             |  81%
+  |                                                                            
+  |=========================================================             |  82%
+  |                                                                            
+  |==========================================================            |  82%
+  |                                                                            
+  |==========================================================            |  83%
+  |                                                                            
+  |===========================================================           |  84%
+  |                                                                            
+  |===========================================================           |  85%
+  |                                                                            
+  |============================================================          |  85%
+  |                                                                            
+  |============================================================          |  86%
+  |                                                                            
+  |=============================================================         |  87%
+  |                                                                            
+  |=============================================================         |  88%
+  |                                                                            
+  |==============================================================        |  88%
+  |                                                                            
+  |==============================================================        |  89%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |================================================================      |  91%
+  |                                                                            
+  |================================================================      |  92%
+  |                                                                            
+  |=================================================================     |  92%
+  |                                                                            
+  |=================================================================     |  93%
+  |                                                                            
+  |==================================================================    |  94%
+  |                                                                            
+  |==================================================================    |  95%
+  |                                                                            
+  |===================================================================   |  95%
+  |                                                                            
+  |===================================================================   |  96%
+  |                                                                            
+  |====================================================================  |  96%
+  |                                                                            
+  |====================================================================  |  97%
+  |                                                                            
+  |====================================================================  |  98%
+  |                                                                            
+  |===================================================================== |  98%
+  |                                                                            
+  |===================================================================== |  99%
+  |                                                                            
+  |======================================================================|  99%
+  |                                                                            
+  |======================================================================| 100%
+Business descriptions are stored in 'Business descriptions text' directory.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        cik                     company.name form.type date.filed
+1   1035267           INTUITIVE SURGICAL INC      10-K 2011-02-01
+2   1035267           INTUITIVE SURGICAL INC      10-K 2012-02-06
+3   1035267           INTUITIVE SURGICAL INC      10-K 2013-02-04
+4   1035267           INTUITIVE SURGICAL INC      10-K 2014-02-03
+5   1035267           INTUITIVE SURGICAL INC      10-K 2015-02-06
+6   1035267           INTUITIVE SURGICAL INC      10-K 2016-02-02
+7   1035267           INTUITIVE SURGICAL INC      10-K 2017-02-06
+8   1035267           INTUITIVE SURGICAL INC      10-K 2018-02-02
+9   1035267           INTUITIVE SURGICAL INC      10-K 2019-02-04
+10  1035267           INTUITIVE SURGICAL INC      10-K 2020-02-07
+11  1035267           INTUITIVE SURGICAL INC      10-K 2021-02-10
+12  1035267           INTUITIVE SURGICAL INC      10-K 2022-02-03
+13   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2011-02-28
+14   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2012-02-29
+15   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2013-02-27
+16   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2014-02-27
+17   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2015-02-25
+18   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2016-02-26
+19   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2017-02-28
+20   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2018-02-26
+21   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2019-02-28
+22   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2020-02-24
+23   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2021-02-23
+24   105770 WEST PHARMACEUTICAL SERVICES INC      10-K 2022-02-22
+25    10795              BECTON DICKINSON CO      10-K 2011-11-23
+26    10795              BECTON DICKINSON CO      10-K 2012-11-21
+27    10795              BECTON DICKINSON CO      10-K 2013-11-27
+28    10795              BECTON DICKINSON CO      10-K 2014-11-26
+29    10795              BECTON DICKINSON CO      10-K 2015-11-25
+30    10795              BECTON DICKINSON CO      10-K 2016-11-23
+31    10795              BECTON DICKINSON CO      10-K 2017-11-22
+32    10795              BECTON DICKINSON CO      10-K 2018-11-21
+33    10795              BECTON DICKINSON CO      10-K 2019-11-27
+34    10795              BECTON DICKINSON CO      10-K 2020-11-25
+35    10795              BECTON DICKINSON CO      10-K 2021-11-24
+36    10795              BECTON DICKINSON CO      10-K 2022-11-22
+37  1082554         UNITED THERAPEUTICS CORP      10-K 2011-02-24
+38  1082554         UNITED THERAPEUTICS CORP      10-K 2012-02-28
+39  1082554         UNITED THERAPEUTICS CORP      10-K 2013-02-26
+40  1082554         UNITED THERAPEUTICS CORP      10-K 2014-02-25
+41  1082554         UNITED THERAPEUTICS CORP      10-K 2015-02-24
+42  1082554         UNITED THERAPEUTICS CORP      10-K 2016-02-25
+43  1082554         UNITED THERAPEUTICS CORP      10-K 2017-02-22
+44  1082554         UNITED THERAPEUTICS CORP      10-K 2018-02-21
+45  1082554         UNITED THERAPEUTICS CORP      10-K 2019-02-27
+46  1082554         UNITED THERAPEUTICS CORP      10-K 2020-02-26
+47  1082554         UNITED THERAPEUTICS CORP      10-K 2021-02-24
+48  1082554         UNITED THERAPEUTICS CORP      10-K 2022-02-24
+49  1093557                       DEXCOM INC      10-K 2011-03-03
+50  1093557                       DEXCOM INC      10-K 2012-02-23
+51  1093557                       DEXCOM INC      10-K 2013-02-21
+52  1093557                       DEXCOM INC      10-K 2014-02-20
+53  1093557                       DEXCOM INC      10-K 2015-02-25
+54  1093557                       DEXCOM INC      10-K 2016-02-23
+55  1093557                       DEXCOM INC      10-K 2017-02-28
+56  1093557                       DEXCOM INC      10-K 2018-02-27
+57  1093557                       DEXCOM INC      10-K 2019-02-21
+58  1093557                       DEXCOM INC      10-K 2020-02-13
+59  1093557                       DEXCOM INC      10-K 2021-02-11
+60  1093557                       DEXCOM INC      10-K 2022-02-14
+61  1100441               RTI BIOLOGICS INC       10-K 2011-02-22
+62  1100441               RTI BIOLOGICS INC       10-K 2012-02-15
+63  1100441               RTI BIOLOGICS INC       10-K 2013-02-26
+64  1100441                RTI SURGICAL INC       10-K 2014-03-10
+65  1100441                RTI SURGICAL INC       10-K 2015-03-04
+66  1100441                RTI SURGICAL INC       10-K 2016-03-07
+67  1100441                RTI SURGICAL INC       10-K 2017-03-13
+68  1100441                RTI SURGICAL INC       10-K 2018-03-02
+69  1100441                RTI SURGICAL INC       10-K 2019-03-05
+70  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2011-09-12
+71  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2012-09-10
+72  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2013-09-11
+73  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2014-08-28
+74  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2015-08-27
+75  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2016-08-25
+76  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2017-08-24
+77  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2018-08-23
+78  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2019-08-23
+79  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2020-08-20
+80  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2021-08-19
+81  1180145       CARDIOVASCULAR SYSTEMS INC      10-K 2022-08-18
+82  1196298                      NEPHROS INC      10-K 2011-03-29
+83  1196298                      NEPHROS INC      10-K 2012-03-22
+84  1196298                      NEPHROS INC      10-K 2013-03-04
+85  1196298                      NEPHROS INC      10-K 2014-03-28
+86  1196298                      NEPHROS INC      10-K 2015-04-15
+87  1196298                      NEPHROS INC      10-K 2016-03-30
+88  1196298                      NEPHROS INC      10-K 2017-03-20
+89  1196298                      NEPHROS INC      10-K 2018-02-26
+90  1196298                      NEPHROS INC      10-K 2019-03-12
+91  1196298                      NEPHROS INC      10-K 2020-02-27
+92  1196298                      NEPHROS INC      10-K 2021-03-01
+93  1196298                      NEPHROS INC      10-K 2022-03-03
+94    12208         BIO RAD LABORATORIES INC      10-K 2011-02-28
+95    12208         BIO RAD LABORATORIES INC      10-K 2012-02-29
+96    12208         BIO RAD LABORATORIES INC      10-K 2013-03-18
+97    12208         BIO RAD LABORATORIES INC      10-K 2014-03-18
+98    12208         BIO RAD LABORATORIES INC      10-K 2015-03-02
+99    12208         BIO RAD LABORATORIES INC      10-K 2016-02-29
+100   12208         BIO RAD LABORATORIES INC      10-K 2017-03-01
+101   12208         BIO RAD LABORATORIES INC      10-K 2018-04-16
+102   12208        BIO RAD LABORATORIES INC       10-K 2019-04-01
+103   12208        BIO RAD LABORATORIES INC       10-K 2020-03-02
+104   12208        BIO RAD LABORATORIES INC       10-K 2021-02-16
+105   12208        BIO RAD LABORATORIES INC       10-K 2022-02-11
+106 1237831               GLOBUS MEDICAL INC      10-K 2013-03-05
+107 1237831               GLOBUS MEDICAL INC      10-K 2014-03-14
+108 1237831               GLOBUS MEDICAL INC      10-K 2015-02-26
+109 1237831               GLOBUS MEDICAL INC      10-K 2016-02-29
+110 1237831               GLOBUS MEDICAL INC      10-K 2017-03-16
+111 1237831               GLOBUS MEDICAL INC      10-K 2018-02-22
+112 1237831               GLOBUS MEDICAL INC      10-K 2019-02-21
+113 1237831               GLOBUS MEDICAL INC      10-K 2020-02-20
+114 1237831               GLOBUS MEDICAL INC      10-K 2021-02-17
+115 1237831               GLOBUS MEDICAL INC      10-K 2022-02-17
+116 1285550           MRI INTERVENTIONS INC       10-K 2013-03-11
+117 1285550           MRI INTERVENTIONS INC       10-K 2014-03-28
+118 1285550           MRI INTERVENTIONS INC       10-K 2015-03-17
+119 1285550           MRI INTERVENTIONS INC       10-K 2016-03-25
+120 1285550           MRI INTERVENTIONS INC       10-K 2017-03-09
+121 1285550           MRI INTERVENTIONS INC       10-K 2018-03-21
+122 1285550           MRI INTERVENTIONS INC       10-K 2019-04-01
+123 1285550            CLEARPOINT NEURO INC       10-K 2020-03-27
+124 1285550            CLEARPOINT NEURO INC       10-K 2021-03-22
+125 1285550            CLEARPOINT NEURO INC       10-K 2022-03-09
+126 1321732                     PENUMBRA INC      10-K 2016-03-08
+127 1321732                     PENUMBRA INC      10-K 2017-02-28
+128 1321732                     PENUMBRA INC      10-K 2018-02-27
+129 1321732                     PENUMBRA INC      10-K 2019-02-26
+130 1321732                     PENUMBRA INC      10-K 2020-02-26
+131 1321732                     PENUMBRA INC      10-K 2021-02-23
+132 1321732                     PENUMBRA INC      10-K 2022-02-22
+133 1323885                    ATRICURE INC       10-K 2011-03-31
+134 1323885                    ATRICURE INC       10-K 2012-03-12
+135 1323885                    ATRICURE INC       10-K 2013-03-08
+136 1323885                    ATRICURE INC       10-K 2014-03-11
+137 1323885                    ATRICURE INC       10-K 2015-03-02
+138 1323885                    ATRICURE INC       10-K 2016-02-29
+139 1323885                    ATRICURE INC       10-K 2017-03-08
+140 1323885                    ATRICURE INC       10-K 2018-02-28
+141 1323885                    ATRICURE INC       10-K 2019-03-01
+142 1323885                    ATRICURE INC       10-K 2020-02-24
+143 1323885                    ATRICURE INC       10-K 2021-02-26
+144 1323885                    ATRICURE INC       10-K 2022-02-17
+145 1388658        IRHYTHM TECHNOLOGIES INC       10-K 2017-03-31
+146 1388658        IRHYTHM TECHNOLOGIES INC       10-K 2018-03-01
+147 1388658        IRHYTHM TECHNOLOGIES INC       10-K 2019-03-04
+148 1388658        IRHYTHM TECHNOLOGIES INC       10-K 2020-03-02
+149 1388658        IRHYTHM TECHNOLOGIES INC       10-K 2021-02-26
+150 1388658        IRHYTHM TECHNOLOGIES INC       10-K 2022-02-28
+151 1407973                     SONENDO INC       10-K 2022-03-23
+152 1438133         TANDEM DIABETES CARE INC      10-K 2014-03-06
+153 1438133         TANDEM DIABETES CARE INC      10-K 2015-02-24
+154 1438133         TANDEM DIABETES CARE INC      10-K 2016-02-24
+155 1438133         TANDEM DIABETES CARE INC      10-K 2017-03-08
+156 1438133         TANDEM DIABETES CARE INC      10-K 2018-03-01
+157 1438133         TANDEM DIABETES CARE INC      10-K 2019-02-26
+158 1438133         TANDEM DIABETES CARE INC      10-K 2020-02-24
+159 1438133         TANDEM DIABETES CARE INC      10-K 2021-02-24
+160 1438133         TANDEM DIABETES CARE INC      10-K 2022-02-22
+161 1501732   INTERNAL FIXATION SYSTEMS INC       10-K 2012-04-17
+162 1506928                      AVINGER INC      10-K 2015-03-27
+163 1506928                      AVINGER INC      10-K 2016-03-08
+164 1506928                      AVINGER INC      10-K 2017-03-15
+165 1506928                      AVINGER INC      10-K 2018-03-30
+166 1506928                      AVINGER INC      10-K 2019-03-06
+167 1506928                      AVINGER INC      10-K 2020-03-06
+168 1506928                      AVINGER INC      10-K 2021-03-11
+169 1506928                      AVINGER INC      10-K 2022-03-22
+170 1531048               INARI MEDICAL INC       10-K 2021-03-09
+171 1531048               INARI MEDICAL INC       10-K 2022-02-23
+172 1531978                  PARAGON 28 INC       10-K 2022-03-08
+173 1551152                      ABBVIE INC       10-K 2013-03-15
+174 1551152                      ABBVIE INC       10-K 2014-02-21
+175 1551152                      ABBVIE INC       10-K 2015-02-20
+176 1551152                      ABBVIE INC       10-K 2016-02-19
+177 1551152                      ABBVIE INC       10-K 2017-02-17
+178 1551152                      ABBVIE INC       10-K 2018-02-16
+179 1551152                      ABBVIE INC       10-K 2019-02-27
+180 1551152                      ABBVIE INC       10-K 2020-02-21
+181 1551152                      ABBVIE INC       10-K 2021-02-19
+182 1551152                      ABBVIE INC       10-K 2022-02-18
+183 1566469                  NANTHEALTH INC       10-K 2017-03-31
+184 1566469                  NANTHEALTH INC       10-K 2018-03-16
+185 1566469                  NANTHEALTH INC       10-K 2019-04-01
+186 1566469                  NANTHEALTH INC       10-K 2020-02-28
+187 1566469                  NANTHEALTH INC       10-K 2021-02-26
+188 1566469                  NANTHEALTH INC       10-K 2022-02-25
+189 1588978         PROCEPT BIOROBOTICS CORP      10-K 2022-03-22
+190 1716621          RA MEDICAL SYSTEMS INC       10-K 2019-03-15
+191 1716621          RA MEDICAL SYSTEMS INC       10-K 2020-03-11
+192 1716621          RA MEDICAL SYSTEMS INC       10-K 2021-03-17
+193 1716621          RA MEDICAL SYSTEMS INC       10-K 2022-03-24
+194  310764                     STRYKER CORP      10-K 2011-02-18
+195  310764                     STRYKER CORP      10-K 2012-02-13
+196  310764                     STRYKER CORP      10-K 2013-02-27
+197  310764                     STRYKER CORP      10-K 2014-02-13
+198  310764                     STRYKER CORP      10-K 2015-02-12
+199  310764                     STRYKER CORP      10-K 2016-02-11
+200  310764                     STRYKER CORP      10-K 2017-02-09
+201  310764                     STRYKER CORP      10-K 2018-02-08
+202  310764                     STRYKER CORP      10-K 2019-02-07
+203  310764                     STRYKER CORP      10-K 2020-02-06
+204  310764                     STRYKER CORP      10-K 2021-02-11
+205  310764                     STRYKER CORP      10-K 2022-02-11
+206  313143                 HAEMONETICS CORP      10-K 2011-05-26
+207  313143                 HAEMONETICS CORP      10-K 2012-05-22
+208  313143                 HAEMONETICS CORP      10-K 2013-05-20
+209  313143                 HAEMONETICS CORP      10-K 2014-05-22
+210  313143                 HAEMONETICS CORP      10-K 2015-05-22
+211  313143                 HAEMONETICS CORP      10-K 2016-06-01
+212  313143                 HAEMONETICS CORP      10-K 2017-05-24
+213  313143                 HAEMONETICS CORP      10-K 2018-05-23
+214  313143                 HAEMONETICS CORP      10-K 2019-05-22
+215  313143                 HAEMONETICS CORP      10-K 2020-05-20
+216  313143                 HAEMONETICS CORP      10-K 2021-05-26
+217  313143                 HAEMONETICS CORP      10-K 2022-05-25
+218  313927         CHURCH DWIGHT CO INC DE       10-K 2011-02-24
+219  313927         CHURCH DWIGHT CO INC DE       10-K 2012-02-24
+220  313927         CHURCH DWIGHT CO INC DE       10-K 2013-02-22
+221  313927         CHURCH DWIGHT CO INC DE       10-K 2014-02-21
+222  313927         CHURCH DWIGHT CO INC DE       10-K 2015-02-20
+223  313927         CHURCH DWIGHT CO INC DE       10-K 2016-02-19
+224  313927         CHURCH DWIGHT CO INC DE       10-K 2017-02-24
+225  313927         CHURCH DWIGHT CO INC DE       10-K 2018-02-23
+226  313927         CHURCH DWIGHT CO INC DE       10-K 2019-02-21
+227  313927         CHURCH DWIGHT CO INC DE       10-K 2020-02-18
+228  313927         CHURCH DWIGHT CO INC DE       10-K 2021-02-18
+229  313927         CHURCH DWIGHT CO INC DE       10-K 2022-02-17
+230  320193                        APPLE INC      10-K 2011-10-26
+231  320193                        APPLE INC      10-K 2012-10-31
+232  320193                        APPLE INC      10-K 2013-10-30
+233  320193                        APPLE INC      10-K 2014-10-27
+234  320193                        APPLE INC      10-K 2015-10-28
+235  320193                        APPLE INC      10-K 2016-10-26
+236  320193                        APPLE INC      10-K 2017-11-03
+237  320193                        APPLE INC      10-K 2018-11-05
+238  320193                       APPLE INC       10-K 2019-10-31
+239  320193                       APPLE INC       10-K 2020-10-30
+240  320193                       APPLE INC       10-K 2021-10-29
+241  320193                       APPLE INC       10-K 2022-10-28
+242  350907                    THORATEC CORP      10-K 2011-02-23
+243  350907                    THORATEC CORP      10-K 2012-02-21
+244  350907                    THORATEC CORP      10-K 2013-02-20
+245  350907                    THORATEC CORP      10-K 2014-02-18
+246  350907                    THORATEC CORP      10-K 2015-02-19
+247  353569                  QUIDEL CORP DE       10-K 2011-02-25
+248  353569                  QUIDEL CORP DE       10-K 2012-03-05
+249  353569                  QUIDEL CORP DE       10-K 2013-02-22
+250  353569                  QUIDEL CORP DE       10-K 2014-02-27
+251  353569                  QUIDEL CORP DE       10-K 2015-02-24
+252  353569                  QUIDEL CORP DE       10-K 2016-02-23
+253  353569                  QUIDEL CORP DE       10-K 2017-02-16
+254  353569                  QUIDEL CORP DE       10-K 2018-02-27
+255  353569                  QUIDEL CORP DE       10-K 2019-02-15
+256  353569                  QUIDEL CORP DE       10-K 2020-02-13
+257  353569                  QUIDEL CORP DE       10-K 2021-02-19
+258  353569                  QUIDEL CORP DE       10-K 2022-02-18
+259  721371              CARDINAL HEALTH INC      10-K 2011-08-26
+260  721371              CARDINAL HEALTH INC      10-K 2012-08-22
+261  721371              CARDINAL HEALTH INC      10-K 2013-08-20
+262  721371              CARDINAL HEALTH INC      10-K 2014-08-13
+263  721371              CARDINAL HEALTH INC      10-K 2015-08-13
+264  721371              CARDINAL HEALTH INC      10-K 2016-08-12
+265  721371              CARDINAL HEALTH INC      10-K 2017-08-10
+266  721371              CARDINAL HEALTH INC      10-K 2018-08-22
+267  721371              CARDINAL HEALTH INC      10-K 2019-08-20
+268  721371              CARDINAL HEALTH INC      10-K 2020-08-13
+269  721371              CARDINAL HEALTH INC      10-K 2021-08-16
+270  721371              CARDINAL HEALTH INC      10-K 2022-08-11
+271  816956                      CONMED CORP      10-K 2011-02-28
+272  816956                      CONMED CORP      10-K 2012-02-28
+273  816956                      CONMED CORP      10-K 2013-02-25
+274  816956                      CONMED CORP      10-K 2014-02-24
+275  816956                      CONMED CORP      10-K 2015-02-23
+276  816956                      CONMED CORP      10-K 2016-02-23
+277  816956                      CONMED CORP      10-K 2017-02-27
+278  816956                      CONMED CORP      10-K 2018-02-26
+279  816956                      CONMED CORP      10-K 2019-02-25
+280  816956                      CONMED CORP      10-K 2020-02-24
+281  816956                      CONMED CORP      10-K 2021-02-22
+282  816956                      CONMED CORP      10-K 2022-02-22
+283  856982        MERIT MEDICAL SYSTEMS INC      10-K 2011-03-15
+284  856982        MERIT MEDICAL SYSTEMS INC      10-K 2012-02-29
+285  856982        MERIT MEDICAL SYSTEMS INC      10-K 2013-03-01
+286  856982        MERIT MEDICAL SYSTEMS INC      10-K 2014-03-12
+287  856982        MERIT MEDICAL SYSTEMS INC      10-K 2015-03-05
+288  856982        MERIT MEDICAL SYSTEMS INC      10-K 2016-02-29
+289  856982        MERIT MEDICAL SYSTEMS INC      10-K 2017-03-01
+290  856982        MERIT MEDICAL SYSTEMS INC      10-K 2018-03-01
+291  856982        MERIT MEDICAL SYSTEMS INC      10-K 2019-03-01
+292  856982        MERIT MEDICAL SYSTEMS INC      10-K 2020-03-02
+293  856982        MERIT MEDICAL SYSTEMS INC      10-K 2021-03-01
+294  856982        MERIT MEDICAL SYSTEMS INC      10-K 2022-03-01
+295    8818       AVERY DENNISON CORPORATION      10-K 2011-02-28
+296    8818              AVERY DENNISON CORP      10-K 2012-02-27
+297    8818              AVERY DENNISON CORP      10-K 2013-02-27
+298    8818              AVERY DENNISON CORP      10-K 2014-02-26
+299    8818              AVERY DENNISON CORP      10-K 2015-02-25
+300    8818              AVERY DENNISON CORP      10-K 2016-02-24
+301    8818              AVERY DENNISON CORP      10-K 2017-02-23
+302    8818              AVERY DENNISON CORP      10-K 2018-02-21
+303    8818              AVERY DENNISON CORP      10-K 2019-02-27
+304    8818              AVERY DENNISON CORP      10-K 2020-02-26
+305    8818              AVERY DENNISON CORP      10-K 2021-02-25
+306    8818              AVERY DENNISON CORP      10-K 2022-02-23
+307  885725           BOSTON SCIENTIFIC CORP      10-K 2011-02-17
+308  885725           BOSTON SCIENTIFIC CORP      10-K 2012-02-17
+309  885725           BOSTON SCIENTIFIC CORP      10-K 2013-02-22
+310  885725           BOSTON SCIENTIFIC CORP      10-K 2014-02-26
+311  885725           BOSTON SCIENTIFIC CORP      10-K 2015-02-25
+312  885725           BOSTON SCIENTIFIC CORP      10-K 2016-02-24
+313  885725           BOSTON SCIENTIFIC CORP      10-K 2017-02-23
+314  885725           BOSTON SCIENTIFIC CORP      10-K 2018-02-20
+315  885725           BOSTON SCIENTIFIC CORP      10-K 2019-02-19
+316  885725           BOSTON SCIENTIFIC CORP      10-K 2020-02-25
+317  885725           BOSTON SCIENTIFIC CORP      10-K 2021-02-23
+318  885725           BOSTON SCIENTIFIC CORP      10-K 2022-02-23
+319  892160              DERMA SCIENCES INC       10-K 2011-03-29
+320  892160              DERMA SCIENCES INC       10-K 2012-03-28
+321  892160              DERMA SCIENCES INC       10-K 2013-03-28
+322  892160              DERMA SCIENCES INC       10-K 2014-03-13
+323  892160              DERMA SCIENCES INC       10-K 2015-03-11
+324  892160              DERMA SCIENCES INC       10-K 2016-03-15
+325  898437           ANIKA THERAPEUTICS INC      10-K 2011-03-16
+326  898437           ANIKA THERAPEUTICS INC      10-K 2012-03-13
+327  898437           ANIKA THERAPEUTICS INC      10-K 2013-03-14
+328  898437           ANIKA THERAPEUTICS INC      10-K 2014-03-13
+329  898437          ANIKA THERAPEUTICS INC       10-K 2015-03-13
+330  898437          ANIKA THERAPEUTICS INC       10-K 2016-03-10
+331  898437          ANIKA THERAPEUTICS INC       10-K 2017-02-24
+332  898437          ANIKA THERAPEUTICS INC       10-K 2018-02-27
+333  898437          ANIKA THERAPEUTICS INC       10-K 2019-02-27
+334  898437          ANIKA THERAPEUTICS INC       10-K 2020-03-06
+335  898437          ANIKA THERAPEUTICS INC       10-K 2021-03-05
+336  898437          ANIKA THERAPEUTICS INC       10-K 2022-03-11
+        accession.number    downld.status extract.status
+1   0001193125-11-020229 Download success              1
+2   0001193125-12-039226 Download success              1
+3   0001193125-13-036675 Download success              1
+4   0001035267-14-000009 Download success              1
+5   0001035267-15-000014 Download success              1
+6   0001035267-16-000130 Download success              1
+7   0001035267-17-000021 Download success              1
+8   0001035267-18-000013 Download success              1
+9   0001035267-19-000012 Download success              1
+10  0001035267-20-000032 Download success              0
+11  0001035267-21-000028 Download success              0
+12  0001035267-22-000014 Download success              0
+13  0000105770-11-000016 Download success              1
+14  0000105770-12-000011 Download success              1
+15  0000105770-13-000007 Download success              1
+16  0000105770-14-000005 Download success              1
+17  0000105770-15-000007 Download success              1
+18  0000105770-16-000060 Download success              1
+19  0000105770-17-000011 Download success              1
+20  0000105770-18-000006 Download success              1
+21  0000105770-19-000012 Download success              1
+22  0000105770-20-000015 Download success              0
+23  0000105770-21-000008 Download success              0
+24  0001628280-22-003342 Download success              0
+25  0000950123-11-100266 Download success              1
+26  0001193125-12-478705 Download success              1
+27  0001193125-13-456802 Download success              1
+28  0001193125-14-426571 Download success              1
+29  0001628280-15-008984 Download success              1
+30  0001628280-16-021658 Download success              1
+31  0000010795-17-000021 Download success              1
+32  0000010795-18-000036 Download success              1
+33  0000010795-19-000044 Download success              1
+34  0000010795-20-000055 Download success              1
+35  0000010795-21-000091 Download success              0
+36  0001628280-22-030686 Download success              0
+37  0001047469-11-001229 Download success              1
+38  0001047469-12-001646 Download success              1
+39  0001047469-13-001660 Download success              1
+40  0001047469-14-001267 Download success              1
+41  0001047469-15-001069 Download success              1
+42  0001047469-16-010392 Download success              1
+43  0001047469-17-000802 Download success              0
+44  0001047469-18-000911 Download success              1
+45  0001047469-19-000724 Download success              1
+46  0001104659-20-025009 Download success              0
+47  0001082554-21-000008 Download success              1
+48  0001082554-22-000004 Download success              1
+49  0001193125-11-055131 Download success              1
+50  0001193125-12-075640 Download success              1
+51  0001193125-13-069590 Download success              1
+52  0001093557-14-000028 Download success              1
+53  0001093557-15-000040 Download success              1
+54  0001093557-16-000432 Download success              1
+55  0001093557-17-000048 Download success              1
+56  0001093557-18-000018 Download success              1
+57  0001093557-19-000041 Download success              1
+58  0001093557-20-000029 Download success              0
+59  0001093557-21-000024 Download success              0
+60  0001093557-22-000014 Download success              0
+61  0001193125-11-042231 Download success              1
+62  0001193125-12-062168 Download success              1
+63  0001193125-13-076915 Download success              1
+64  0001193125-14-091756 Download success              1
+65  0001193125-15-076985 Download success              1
+66  0001193125-16-495394 Download success              1
+67  0001193125-17-080126 Download success              1
+68  0001193125-18-068642 Download success              1
+69  0001193125-19-063391 Download success              1
+70  0001193125-11-245825 Download success              1
+71  0001193125-12-386811 Download success              1
+72  0001445305-13-002256 Download success              1
+73  0001180145-14-000030 Download success              1
+74  0001180145-15-000026 Download success              1
+75  0001180145-16-000096 Download success              1
+76  0001180145-17-000040 Download success              1
+77  0001180145-18-000044 Download success              1
+78  0001180145-19-000028 Download success              0
+79  0001180145-20-000042 Download success              0
+80  0001180145-21-000032 Download success              0
+81  0001180145-22-000038 Download success              0
+82  0001144204-11-017998 Download success              1
+83  0001144204-12-016613 Download success              1
+84  0001144204-13-012708 Download success              1
+85  0001144204-14-018633 Download success              1
+86  0001144204-15-022858 Download success              1
+87  0001493152-16-008366 Download success              1
+88  0001493152-17-002633 Download success              1
+89  0001493152-18-002569 Download success              1
+90  0001493152-19-003127 Download success              1
+91  0001493152-20-003069 Download success              1
+92  0001493152-21-005090 Download success              1
+93  0001493152-22-005976 Download success              0
+94  0000012208-11-000016 Download success              1
+95  0000012208-12-000008 Download success              1
+96  0000012208-13-000007 Download success              1
+97  0000012208-14-000020 Download success              1
+98  0000012208-15-000012 Download success              1
+99  0000012208-16-000053 Download success              1
+100 0000012208-17-000012 Download success              0
+101 0000012208-18-000014 Download success              0
+102 0000012208-19-000014 Download success              0
+103 0000012208-20-000012 Download success              0
+104 0000012208-21-000012 Download success              0
+105 0000012208-22-000011 Download success              0
+106 0001237831-13-000013 Download success              1
+107 0001237831-14-000012 Download success              1
+108 0001237831-15-000009 Download success              1
+109 0001237831-16-000075 Download success              1
+110 0001237831-17-000009 Download success              1
+111 0001237831-18-000012 Download success              1
+112 0001237831-19-000014 Download success              1
+113 0001237831-20-000010 Download success              1
+114 0001562762-21-000036 Download success              1
+115 0001562762-22-000037 Download success              1
+116 0001437749-13-002608 Download success              1
+117 0001437749-14-005398 Download success              1
+118 0001437749-15-005283 Download success              1
+119 0001534424-16-000661 Download success              1
+120 0001534424-17-000093 Download success              1
+121 0001534424-18-000090 Download success              1
+122 0001534424-19-000092 Download success              1
+123 0001171520-20-000159 Download success              1
+124 0001171520-21-000138 Download success              1
+125 0001285550-22-000003 Download success              0
+126 0001628280-16-012417 Download success              1
+127 0001321732-17-000084 Download success              1
+128 0001321732-18-000038 Download success              1
+129 0001321732-19-000031 Download success              1
+130 0001321732-20-000047 Download success              0
+131 0001628280-21-002867 Download success              0
+132 0001321732-22-000017 Download success              0
+133 0001193125-11-084132 Download success              1
+134 0001193125-12-108839 Download success              1
+135 0001193125-13-097386 Download success              1
+136 0001193125-14-093364 Download success              1
+137 0001193125-15-073256 Download success              1
+138 0001323885-16-000025 Download success              0
+139 0001323885-17-000017 Download success              0
+140 0001323885-18-000017 Download success              0
+141 0001323885-19-000009 Download success              0
+142 0001323885-20-000009 Download success              0
+143 0001323885-21-000011 Download success              0
+144 0001323885-22-000011 Download success              1
+145 0001564590-17-005767 Download success              1
+146 0001564590-18-004080 Download success              1
+147 0001564590-19-005924 Download success              1
+148 0001388658-20-000034 Download success              0
+149 0001388658-21-000039 Download success              0
+150 0001388658-22-000020 Download success              0
+151 0000950170-22-004418 Download success              0
+152 0001193125-14-086714 Download success              1
+153 0001564590-15-000886 Download success              1
+154 0001564590-16-013192 Download success              1
+155 0001564590-17-003680 Download success              1
+156 0001564590-18-004141 Download success              1
+157 0001564590-19-004469 Download success              1
+158 0001438133-20-000014 Download success              1
+159 0001438133-21-000015 Download success              0
+160 0001438133-22-000021 Download success              0
+161 0001213900-12-001914 Download success              0
+162 0001104659-15-023450 Download success              1
+163 0001104659-16-103101 Download success              1
+164 0001104659-17-016428 Download success              1
+165 0001104659-18-021543 Download success              1
+166 0001437749-19-004223 Download success              1
+167 0001437749-20-004451 Download success              1
+168 0001437749-21-005713 Download success              1
+169 0001437749-22-006919 Download success              1
+170 0001564590-21-011763 Download success              1
+171 0000950170-22-001783 Download success              0
+172 0000950170-22-003129 Download success              0
+173 0001047469-13-002827 Download success              1
+174 0001047469-14-001154 Download success              1
+175 0001047469-15-000995 Download success              1
+176 0001047469-16-010239 Download success              1
+177 0001551152-17-000004 Download success              1
+178 0001551152-18-000014 Download success              1
+179 0001551152-19-000008 Download success              1
+180 0001551152-20-000007 Download success              1
+181 0001551152-21-000008 Download success              0
+182 0001551152-22-000007 Download success              0
+183 0001566469-17-000007 Download success              1
+184 0001566469-18-000006 Download success              1
+185 0001566469-19-000012 Download success              1
+186 0001566469-20-000015 Download success              1
+187 0001566469-21-000010 Download success              0
+188 0001566469-22-000013 Download success              0
+189 0001628280-22-006885 Download success              0
+190 0001564590-19-007905 Download success              1
+191 0001564590-20-010123 Download success              1
+192 0001564590-21-013653 Download success              1
+193 0001564590-22-011555 Download success              0
+194 0001193125-11-039845 Download success              1
+195 0000310764-12-000031 Download success              1
+196 0000310764-13-000054 Download success              1
+197 0000310764-14-000021 Download success              1
+198 0000310764-15-000022 Download success              1
+199 0000310764-16-000226 Download success              1
+200 0000310764-17-000034 Download success              1
+201 0000310764-18-000031 Download success              1
+202 0000310764-19-000014 Download success              1
+203 0000310764-20-000014 Download success              1
+204 0000310764-21-000027 Download success              1
+205 0000310764-22-000028 Download success              1
+206 0000950123-11-054481 Download success              1
+207 0000313143-12-000071 Download success              1
+208 0000313143-13-000085 Download success              1
+209 0000313143-14-000055 Download success              1
+210 0000313143-15-000033 Download success              1
+211 0000313143-16-000128 Download success              1
+212 0000313143-17-000017 Download success              1
+213 0000313143-18-000020 Download success              1
+214 0000313143-19-000022 Download success              1
+215 0000313143-20-000028 Download success              1
+216 0000313143-21-000023 Download success              1
+217 0000313143-22-000024 Download success              1
+218 0001193125-11-045474 Download success              1
+219 0001193125-12-077495 Download success              1
+220 0001193125-13-071188 Download success              1
+221 0001193125-14-062315 Download success              1
+222 0001564590-15-000786 Download success              0
+223 0001564590-16-012917 Download success              0
+224 0001564590-17-002326 Download success              0
+225 0001564590-18-002984 Download success              0
+226 0001564590-19-003587 Download success              0
+227 0001564590-20-004956 Download success              0
+228 0001564590-21-006669 Download success              0
+229 0001564590-22-005528 Download success              0
+230 0001193125-11-282113 Download success              1
+231 0001193125-12-444068 Download success              1
+232 0001193125-13-416534 Download success              1
+233 0001193125-14-383437 Download success              1
+234 0001193125-15-356351 Download success              1
+235 0001628280-16-020309 Download success              1
+236 0000320193-17-000070 Download success              1
+237 0000320193-18-000145 Download success              1
+238 0000320193-19-000119 Download success              0
+239 0000320193-20-000096 Download success              0
+240 0000320193-21-000105 Download success              0
+241 0000320193-22-000108 Download success              0
+242 0001047469-11-001197 Download success              1
+243 0001047469-12-001218 Download success              1
+244 0001047469-13-001316 Download success              1
+245 0001047469-14-000984 Download success              1
+246 0001047469-15-000962 Download success              1
+247 0000950123-11-018919 Download success              1
+248 0001193125-12-096692 Download success              1
+249 0001193125-13-071645 Download success              1
+250 0001193125-14-073364 Download success              1
+251 0000353569-15-000010 Download success              1
+252 0000353569-16-000078 Download success              1
+253 0000353569-17-000012 Download success              1
+254 0000353569-18-000021 Download success              1
+255 0000353569-19-000013 Download success              1
+256 0000353569-20-000018 Download success              1
+257 0000353569-21-000028 Download success              0
+258 0000353569-22-000026 Download success              0
+259 0001193125-11-233322 Download success              1
+260 0000721371-12-000069 Download success              1
+261 0000721371-13-000154 Download success              1
+262 0000721371-14-000181 Download success              1
+263 0000721371-15-000107 Download success              0
+264 0000721371-16-000277 Download success              0
+265 0000721371-17-000083 Download success              0
+266 0000721371-18-000077 Download success              0
+267 0000721371-19-000090 Download success              0
+268 0000721371-20-000089 Download success              0
+269 0000721371-21-000080 Download success              0
+270 0000721371-22-000058 Download success              0
+271 0000914317-11-000319 Download success              0
+272 0000816956-12-000007 Download success              1
+273 0000816956-13-000003 Download success              1
+274 0000816956-14-000003 Download success              1
+275 0000816956-15-000003 Download success              1
+276 0000816956-16-000013 Download success              1
+277 0000816956-17-000002 Download success              1
+278 0000816956-18-000003 Download success              1
+279 0000816956-19-000003 Download success              1
+280 0000816956-20-000003 Download success              0
+281 0000816956-21-000003 Download success              0
+282 0000816956-22-000004 Download success              0
+283 0001104659-11-014389 Download success              1
+284 0000856982-12-000012 Download success              1
+285 0000856982-13-000009 Download success              1
+286 0000856982-14-000011 Download success              1
+287 0000856982-15-000005 Download success              1
+288 0000856982-16-000076 Download success              1
+289 0000856982-17-000011 Download success              1
+290 0000856982-18-000007 Download success              1
+291 0000856982-19-000016 Download success              1
+292 0000856982-20-000011 Download success              1
+293 0000856982-21-000003 Download success              1
+294 0000856982-22-000013 Download success              1
+295 0000950123-11-018967 Download success              1
+296 0001193125-12-078843 Download success              1
+297 0001047469-13-001812 Download success              1
+298 0001047469-14-001386 Download success              1
+299 0001047469-15-001200 Download success              1
+300 0001047469-16-010376 Download success              1
+301 0001047469-17-000881 Download success              1
+302 0001047469-18-000931 Download success              1
+303 0001047469-19-000747 Download success              1
+304 0001104659-20-025360 Download success              0
+305 0001193125-21-055146 Download success              1
+306 0001193125-22-049910 Download success              1
+307 0000950123-11-015112 Download success              1
+308 0000885725-12-000006 Download success              1
+309 0000885725-13-000007 Download success              1
+310 0000885725-14-000005 Download success              1
+311 0000885725-15-000006 Download success              1
+312 0000885725-16-000028 Download success              1
+313 0000885725-17-000006 Download success              1
+314 0000885725-18-000010 Download success              1
+315 0000885725-19-000011 Download success              1
+316 0000885725-20-000012 Download success              0
+317 0000885725-21-000008 Download success              0
+318 0000885725-22-000006 Download success              0
+319 0001144204-11-018050 Download success              1
+320 0001144204-12-017767 Download success              1
+321 0001144204-13-018386 Download success              1
+322 0001144204-14-015526 Download success              1
+323 0001144204-15-015419 Download success              1
+324 0001144204-16-088236 Download success              1
+325 0001157523-11-001610 Download success              1
+326 0001157523-12-001365 Download success              1
+327 0001157523-13-001397 Download success              1
+328 0001171843-14-001240 Download success              1
+329 0001171843-15-001395 Download success              1
+330 0001171843-16-008487 Download success              1
+331 0001171843-17-001121 Download success              1
+332 0001171843-18-001450 Download success              1
+333 0001171843-19-001243 Download success              1
+334 0001171843-20-001536 Download success              1
+335 0001171843-21-001573 Download success              1
+336 0001171843-22-001790 Download success              1</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

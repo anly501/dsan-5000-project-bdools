@@ -2,5 +2,5 @@
 *.txt
 *.gz
 *.Rda
-.tmp.driveupload/63927
+*.tmp.*
 ./DSAN-5000-Website/data-cleaning/outputs/

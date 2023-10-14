@@ -1,0 +1,45 @@
+{
+    "status": "ok",
+    "totalResults": 3,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "Marketscreener.com"
+            },
+            "author": null,
+            "title": "Hyperfine, Inc. Announces Promotions of Two Key Clinical Affairs Executives",
+            "description": "(marketscreener.com) \nNew vice presidents of medical affairs and scientific affairs will support brain health innovation\n\nhttps://www.marketscreener.com/quote/stock/HYPERFINE-INC-131167380/news/Hyperfine-Inc-Announces-Promotions-of-Two-Key-Clinical-Affairs-Ex\u2026",
+            "url": "https://www.marketscreener.com/quote/stock/HYPERFINE-INC-131167380/news/Hyperfine-Inc-Announces-Promotions-of-Two-Key-Clinical-Affairs-Executives-45032477/",
+            "urlToImage": "https://www.marketscreener.com/images/twitter_MS_fdnoir.png",
+            "publishedAt": "2023-10-10T20:08:02Z",
+            "content": "New vice presidents of medical affairs and scientific affairs will support brain health innovation\r\nHyperfine, Inc. (Nasdaq: HYPR), the groundbreaking medical device company that has redefined brain \u2026 [+8709 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Marketscreener.com"
+            },
+            "author": "Business Wire",
+            "title": "Hyperfine, Inc. Receives FDA Clearance for Updated AI-powered Software with Improved Image Quality for All Swoop\u00ae System Sequences",
+            "description": "(marketscreener.com) \nAdvanced artificial intelligence algorithms are now integrated across all Swoop\u00ae ultra-low-field brain imaging system sequences\n\nhttps://www.marketscreener.com/quote/stock/HYPERFINE-INC-131167380/news/Hyperfine-Inc-Receives-FDA-Clearance\u2026",
+            "url": "https://www.marketscreener.com/quote/stock/HYPERFINE-INC-131167380/news/Hyperfine-Inc-Receives-FDA-Clearance-for-Updated-AI-powered-Software-with-Improved-Image-Quality-f-45020042/",
+            "urlToImage": "https://www.marketscreener.com/images/twitter_MS_fdnoir.png",
+            "publishedAt": "2023-10-09T13:02:01Z",
+            "content": "Advanced artificial intelligence (AI) algorithms are now integrated across all Swoop\u00ae ultra-low-field brain imaging system sequences\r\nHyperfine, Inc. (Nasdaq: HYPR), the groundbreaking medical device\u2026 [+7325 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "PRNewswire"
+            },
+            "author": null,
+            "title": "HOPPR appoints world-renowned radiologist and AI pioneer, Dr. Khan M. Siddiqui, as CEO",
+            "description": "CHICAGO, Sept. 19, 2023 /PRNewswire/ -- In a groundbreaking move, HOPPR, an AI company that is changing medical imaging forever by enabling a GPT-4-like interaction with medical imaging studies, is proud to announce the appointment of Dr. Khan Siddiqui as its\u2026",
+            "url": "https://www.prnewswire.com/news-releases/hoppr-appoints-world-renowned-radiologist-and-ai-pioneer-dr-khan-m-siddiqui-as-ceo-301932040.html",
+            "urlToImage": "https://mma.prnewswire.com/media/2214247/HOPPR_Dr_Khan_M_Siddiqui.jpg?p=facebook",
+            "publishedAt": "2023-09-19T14:04:00Z",
+            "content": "CHICAGO, Sept. 19, 2023 /PRNewswire/ -- In a groundbreaking move, HOPPR, an AI company that is changing medical imaging forever by enabling a GPT-4-like interaction with medical imaging studies, is p\u2026 [+2740 chars]"
+        }
+    ]
+}

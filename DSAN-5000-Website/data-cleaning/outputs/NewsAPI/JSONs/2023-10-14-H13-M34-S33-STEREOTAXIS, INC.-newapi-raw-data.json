@@ -1,0 +1,45 @@
+{
+    "status": "ok",
+    "totalResults": 3,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "Yahoo Entertainment"
+            },
+            "author": "GuruFocus Research",
+            "title": "Insider Buying: Paul Isaac Acquires 7,505 Shares of Stereotaxis Inc (STXS)",
+            "description": "On September 13, 2023, Paul Isaac, See Remarks at Stereotaxis Inc, made a significant purchase of 7,505 shares of the company's stock.",
+            "url": "https://finance.yahoo.com/news/insider-buying-paul-isaac-acquires-190246142.html",
+            "urlToImage": "https://media.zenfs.com/en/us.finance.gurufocus/ee8ce03344097d59d38a63df455c45af",
+            "publishedAt": "2023-09-15T19:02:46Z",
+            "content": "On September 13, 2023, Paul Isaac, See Remarks at Stereotaxis Inc, made a significant purchase of 7,505 shares of the company's stock. This move is noteworthy as insider buying can often be a positiv\u2026 [+2639 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Biztoc.com"
+            },
+            "author": "benzinga.com",
+            "title": "12 Health Care Stocks Moving In Monday's After-Market Session",
+            "description": "Longeveron Inc. - Subscription Right shares moved upwards by 536.4% to $0.01 during Monday's after-market session. At the close, Longeveron Inc. - Subscription Right's trading volume reached 238.3K shares. This is 42.8% of its average volume over the last 100\u2026",
+            "url": "https://biztoc.com/x/3b980b07e8510e0d",
+            "urlToImage": "https://c.biztoc.com/p/3b980b07e8510e0d/s.webp",
+            "publishedAt": "2023-09-18T22:10:10Z",
+            "content": "Longeveron Inc. - Subscription Right shares moved upwards by 536.4% to $0.01 during Monday's after-market session. At the close, Longeveron Inc. - Subscription Right's trading volume reached 238.3K s\u2026 [+310 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "PRNewswire"
+            },
+            "author": null,
+            "title": "Electrophysiology Catheters Market size to grow by USD 2.24 billion from 2022-2027| Abbott Laboratories, Acutus Medical Inc., and Johnson and Johnson are some of the major companies in the market - Technavio",
+            "description": "NEW YORK, Sept. 25, 2023 /PRNewswire/ -- The Electrophysiology Catheters Market size is expected to grow by USD 2.24 billion, accelerating at a CAGR of 8.73% during the forecast period, according to Technavio Research. Companies are implementing various strat\u2026",
+            "url": "https://www.prnewswire.com/news-releases/electrophysiology-catheters-market-size-to-grow-by-usd-2-24-billion-from-2022-2027-abbott-laboratories-acutus-medical-inc-and-johnson-and-johnson-are-some-of-the-major-companies-in-the-market---technavio-301936344.html",
+            "urlToImage": "https://mma.prnewswire.com/media/2218732/Technavio_MarketResearch.jpg?p=facebook",
+            "publishedAt": "2023-09-25T21:15:00Z",
+            "content": "NEW YORK, Sept. 25, 2023 /PRNewswire/ -- The Electrophysiology Catheters Market\u00a0size is expected to grow by USD 2.24 billion, accelerating at a CAGR of 8.73% during the forecast period, according to \u2026 [+5721 chars]"
+        }
+    ]
+}
