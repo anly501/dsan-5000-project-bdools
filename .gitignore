@@ -4,4 +4,4 @@
 *.Rda
 *.tmp.*
 ./DSAN-5000-Website/data-cleaning/outputs/
-./DSAN-5000-Website/data-gathering/outputs/
+*./DSAN-5000-Website/data-gathering/outputs/*.csv
