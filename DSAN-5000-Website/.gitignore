@@ -1,1 +1,8 @@
 /.quarto/
+*.txt
+*.gz
+*.Rda
+*.tmp.*
+*./data-cleaning/outputs/
+*./data-gathering/outputs/fda.csv
+*./data-gathering/outputs/sec.csv
