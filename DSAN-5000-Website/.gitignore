@@ -3,6 +3,6 @@
 *.gz
 *.Rda
 *.tmp.*
-*./data-cleaning/outputs/
+*./data-cleaning/outputs/SEC-Edgar
 *./data-gathering/outputs/fda.csv
 *./data-gathering/outputs/sec.csv
