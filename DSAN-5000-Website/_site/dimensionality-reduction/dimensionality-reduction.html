@@ -4588,15 +4588,7 @@ vertical-align: -.125em;
   <li><a href="#dimensionality-reduction-with-pca" id="toc-dimensionality-reduction-with-pca" class="nav-link" data-scroll-target="#dimensionality-reduction-with-pca"><strong>Dimensionality Reduction with PCA</strong></a></li>
   <li><a href="#dimensionality-reduction-with-t-sne" id="toc-dimensionality-reduction-with-t-sne" class="nav-link" data-scroll-target="#dimensionality-reduction-with-t-sne"><strong>Dimensionality Reduction with t-SNE</strong></a></li>
   </ul></li>
-  <li><a href="#project-report" id="toc-project-report" class="nav-link" data-scroll-target="#project-report"><strong>Project Report</strong></a>
-  <ul class="collapse">
-  <li><a href="#overview-of-activities" id="toc-overview-of-activities" class="nav-link" data-scroll-target="#overview-of-activities">Overview of Activities</a></li>
-  <li><a href="#data-preprocessing-and-eda" id="toc-data-preprocessing-and-eda" class="nav-link" data-scroll-target="#data-preprocessing-and-eda">Data Preprocessing and EDA</a></li>
-  <li><a href="#dimensionality-reduction-techniques" id="toc-dimensionality-reduction-techniques" class="nav-link" data-scroll-target="#dimensionality-reduction-techniques">Dimensionality Reduction Techniques</a></li>
-  <li><a href="#findings-and-analysis" id="toc-findings-and-analysis" class="nav-link" data-scroll-target="#findings-and-analysis">Findings and Analysis</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
-  </ul></li>
+  <li><a href="#project-report" id="toc-project-report" class="nav-link" data-scroll-target="#project-report"><strong>Project Report</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -4624,7 +4616,7 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="project-proposal"><strong>Project Proposal</strong></h2>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h3>
-<p>In this project, I aim to explore the application of various dimensionality reduction techniques on my joint SEC-FDA mixed-financial/medical device approval data. The primary objective is to reduce the number of variables while retaining the essential information of continuous quantiative features to get a better intuitive sense of the feature space. This process is crucial for improving my models’ interpretability and enhancing computational efficiency.</p>
+<p>In this part of the project, I aim to explore the application of various dimensionality reduction techniques on my joint SEC-FDA mixed-financial/medical device approval data. The primary objective is to reduce the number of variables while retaining the essential information of continuous quantiative features to get a better intuitive sense of the feature space. This process is crucial for improving my models’ interpretability and enhancing computational efficiency.</p>
 <section id="objectives" class="level4">
 <h4 class="anchored" data-anchor-id="objectives">Objectives</h4>
 <ol type="1">
@@ -5338,7 +5330,7 @@ vertical-align: -.125em;
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot using Seaborn</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">&#39;TSNE1&#39;</span>, y<span class="op">=</span><span class="st">&#39;TSNE2&#39;</span>, hue<span class="op">=</span><span class="st">&#39;advisory_committee_description&#39;</span>, data<span class="op">=</span>tsne_df)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;t-SNE visualization with Perplexity=15&#39;</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;t-SNE visualization with Perplexity=40&#39;</span>)</span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -5349,29 +5341,25 @@ vertical-align: -.125em;
 </section>
 <section id="project-report" class="level2">
 <h2 class="anchored" data-anchor-id="project-report"><strong>Project Report</strong></h2>
-<section id="overview-of-activities" class="level3">
-<h3 class="anchored" data-anchor-id="overview-of-activities">Overview of Activities</h3>
-<p>In this project, I successfully applied dimensionality reduction techniques to a complex dataset. The process began with data loading and preprocessing, followed by exploratory data analysis. I then implemented PCA and t-SNE to reduce the dataset’s dimensions and visualized the results for interpretation.</p>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>In my project, I delved into the complex interplay between the financial structuring of companies and their medical device approval outcomes using a joint SEC-FDA dataset. My goal was to distill continuous quantitative features into a more intuitive and manageable format, leveraging dimensionality reduction techniques.</p>
 </section>
-<section id="data-preprocessing-and-eda" class="level3">
-<h3 class="anchored" data-anchor-id="data-preprocessing-and-eda">Data Preprocessing and EDA</h3>
-<p>The data preprocessing phase involved cleaning the dataset, handling missing values, and normalizing the data. During the EDA, I conducted a detailed statistical analysis and created visualizations to understand the data’s distribution and relationships.</p>
+<section id="pca-analysis-and-insights" class="level4">
+<h4 class="anchored" data-anchor-id="pca-analysis-and-insights">PCA Analysis and Insights</h4>
+<p>My application of Principal Component Analysis (PCA) revealed striking patterns. The first principal component alone encapsulated 89.10% of the variance. This dominant component, possibly reflecting a composite financial indicator, underscores a pivotal underlying factor in the dataset. The cumulative variance explained by the first 3 components reached a remarkable 95.8178%, indicating that these components succinctly capture the essence of the dataset, meaning that 2 principal components (93.6783%, and also the elbow point) is the optimal number to visualize groups of the feature subspace.</p>
 </section>
-<section id="dimensionality-reduction-techniques" class="level3">
-<h3 class="anchored" data-anchor-id="dimensionality-reduction-techniques">Dimensionality Reduction Techniques</h3>
-<p>I applied PCA and t-SNE, two powerful techniques for dimensionality reduction. PCA helped in identifying the principal components, while t-SNE was effective in visualizing high-dimensional data in a two-dimensional space.</p>
+<section id="t-sne-analysis-and-limitations" class="level4">
+<h4 class="anchored" data-anchor-id="t-sne-analysis-and-limitations">t-SNE Analysis and Limitations</h4>
+<p>The t-SNE analysis, however, presented a different scenario. When attempting to map the advisory committees to clusters, the results were not conclusive. This suggests that the relationship between committee types and the high-dimensional data structure might be more complex than initially hypothesized, or perhaps less linear in nature. The inability of t-SNE to distinctly cluster data based on advisory committees implies that other, non-linear methods might be better suited for uncovering these relationships.</p>
 </section>
-<section id="findings-and-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="findings-and-analysis">Findings and Analysis</h3>
-<p>The application of PCA and t-SNE provided significant insights. PCA was effective in reducing the dimensionality with minimal loss of information, and t-SNE offered a deeper understanding of the data clusters and patterns in a reduced dimension.</p>
+<section id="role-of-specific-financial-variables" class="level4">
+<h4 class="anchored" data-anchor-id="role-of-specific-financial-variables">Role of Specific Financial Variables</h4>
+<p>The role of specific financial variables, such as R&amp;D expenditure, emerged as a point of interest for me. It might hold more weight in models that directly predict the likelihood of device approvals. In a regression model, decision tree, or random forest, the direct financial inputs like R&amp;D spending could be more influential. This is based on the premise that R&amp;D intensity is likely a direct contributor to the innovation pipeline and, by extension, to the number and success of device approvals. I will continue to explore this hypothesis in the next phase of my project.</p>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>The project successfully demonstrated the effectiveness of dimensionality reduction techniques in simplifying and visualizing complex datasets. PCA and t-SNE proved to be valuable tools in revealing hidden structures and patterns in the data.</p>
-</section>
-<section id="future-work" class="level3">
-<h3 class="anchored" data-anchor-id="future-work">Future Work</h3>
-<p>Future work can include exploring other dimensionality reduction techniques, applying these methods to different types of datasets, and integrating dimensionality reduction into machine learning pipelines for improved model performance and interpretability.</p>
+<section id="conclusion-and-future-directions" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-and-future-directions">Conclusion and Future Directions</h4>
+<p>The PCA results provided a comprehensive overview, while the t-SNE analysis highlighted the complexity of mapping non-linear relationships. Moving forward, I plan to focus on the specific financial variables that likely have a more direct impact on FDA approval outcomes. By integrating these variables into random forest models, I aim to uncover how financial structuring influences the rate and success of device approvals. Further, exploring non-linear modeling techniques to better understand the role of advisory committees could provide additional insights into the FDA approval process.</p>
 
 
 </section>
