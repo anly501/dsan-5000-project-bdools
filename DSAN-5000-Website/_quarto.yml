@@ -17,29 +17,23 @@ website:
         text: Code
       - href: https://drive.google.com/drive/folders/1-H9c243q2D5CB6wgZD7c40CGSjNJjs4s?usp=drive_link
         text: Data
-      - href: ./introduction/introduction.ipynb
+      - href: ./introduction/code/introduction.ipynb
         text: Introduction
-      - href: ./data-gathering/data-gathering.ipynb
+      - href: ./data-gathering/code/data-gathering.ipynb
         text: Data Gathering
-
-      - href: ./data-cleaning/data-cleaning_python.ipynb
+      - href: ./data-cleaning/code/data-cleaning_python.ipynb
         text: Data Cleaning
-
-      - href: ./data-exploration/data-exploration.ipynb
+      - href: ./data-exploration/code/data-exploration.ipynb
         text: Data Exploration
-      - href: ./naive-bayes/naive-bayes.ipynb
+      - href: ./naive-bayes/code/naive-bayes.ipynb
         text: Naive Bayes
-      - href: ./clustering/clustering.ipynb
+      - href: ./clustering/code/clustering.ipynb
         text: Clustering
-      - href: ./dimensionality-reduction/dimensionality-reduction.ipynb
+      - href: ./dimensionality-reduction/code/dimensionality-reduction.ipynb
         text: Dimensionality Reduction
-
-      - href: ./decision-trees/decision_trees.ipynb
+      - href: ./decision-trees/code/decision_trees.ipynb
         text: Decision Trees
-
-      - href: ./arm/arm.ipynb
-        text: ARM
-      - href: ./conclusions/conclusions.ipynb
+      - href: ./conclusions/code/conclusions.ipynb
         text: Conclusions
 format:
   html:
