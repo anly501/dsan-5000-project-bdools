@@ -1,0 +1,19 @@
+{
+    "status": "ok",
+    "totalResults": 1,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "Plos.org"
+            },
+            "author": "Muntasir Kamal, Levon Tokmakjian, Jessica Knox, Duhyun Han, Houtan Moshiri, Lilia Magomedova, Ken CQ Nguyen, Hong Zheng, Andrew R. Burns, Brittany Cooke, Jessica Lacoste, May Yeo, David H. Hall, Carolyn L. Cummins, Peter J. Roy",
+            "title": "PGP-14 establishes a polar lipid permeability barrier within the C. elegans pharyngeal cuticle",
+            "description": "Author summary An infinite number of small molecules have the potential to threaten life. Not surprisingly then, animals have evolved multiple mechanisms to defend against such threats. One defense mechanism employed by many animals is the creation of an oute\u2026",
+            "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1011008",
+            "urlToImage": "https://journals.plos.org/plosgenetics/article/figure/image?id=10.1371/journal.pgen.1011008.g008&size=inline",
+            "publishedAt": "2023-11-06T14:00:00Z",
+            "content": "Citation: Kamal M, Tokmakjian L, Knox J, Han D, Moshiri H, Magomedova L, et al. (2023) PGP-14 establishes a polar lipid permeability barrier within the C. elegans pharyngeal cuticle. PLoS Genet 19(11\u2026 [+83671 chars]"
+        }
+    ]
+}

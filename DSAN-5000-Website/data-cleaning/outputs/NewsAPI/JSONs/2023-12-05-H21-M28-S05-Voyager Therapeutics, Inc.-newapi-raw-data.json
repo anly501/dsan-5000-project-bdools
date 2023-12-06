@@ -1,0 +1,32 @@
+{
+    "status": "ok",
+    "totalResults": 2,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "ETF Daily News"
+            },
+            "author": "MarketBeat News",
+            "title": "Campbell & CO Investment Adviser LLC Boosts Stake in Voyager Therapeutics, Inc. (NASDAQ:VYGR)",
+            "description": "Campbell & CO Investment Adviser LLC boosted its stake in Voyager Therapeutics, Inc. (NASDAQ:VYGR \u2013 Free Report) by 21.0% in the 2nd quarter, according to its most recent filing with the SEC. The fund owned 36,994 shares of the company\u2019s stock after purchasin\u2026",
+            "url": "https://www.etfdailynews.com/2023/12/02/campbell-co-investment-adviser-llc-boosts-stake-in-voyager-therapeutics-inc-nasdaqvygr/",
+            "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/voyager-therapeutics-inc-logo.png?v=20221216131945&w=240&h=240&zc=2",
+            "publishedAt": "2023-12-02T13:48:51Z",
+            "content": "Campbell &amp; CO Investment Adviser LLC boosted its stake in Voyager Therapeutics, Inc. (NASDAQ:VYGR \u2013 Free Report) by 21.0% in the 2nd quarter, according to its most recent filing with the SEC. The\u2026 [+5186 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "GlobeNewswire"
+            },
+            "author": "Cyclerion Therapeutics, Inc.",
+            "title": "Cyclerion Strengthens Board of Directors with Experienced Company Builder and Cutting-edge Innovator",
+            "description": "- Dina Katabi, Ph.D.: World leader in healthcare AI applications at MIT; inventor of groundbreaking wireless devices for passive assessment of symptoms, behavior, and treatment responses in neurological and psychiatric disorders",
+            "url": "https://www.globenewswire.com/news-release/2023/11/30/2789032/0/en/Cyclerion-Strengthens-Board-of-Directors-with-Experienced-Company-Builder-and-Cutting-edge-Innovator.html",
+            "urlToImage": "https://ml.globenewswire.com/Resource/Download/445ab2e5-e10a-4eb7-a71e-fc9eb54317bc",
+            "publishedAt": "2023-11-30T23:16:00Z",
+            "content": "- Dina Katabi, Ph.D.:World leader in healthcare AI applications at MIT; inventor of groundbreaking wireless devices for passive assessment of symptoms, behavior, and treatment responses in neurologic\u2026 [+6471 chars]"
+        }
+    ]
+}

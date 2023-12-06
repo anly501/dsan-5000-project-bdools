@@ -2,7 +2,6 @@ project:
   type: website
 
 website:
-  title: DSAN 5000  Project
   navbar:
     search: true
     logo-href: https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png
@@ -21,7 +20,7 @@ website:
         text: Introduction
       - href: ./data-gathering/code/data-gathering.ipynb
         text: Data Gathering
-      - href: ./data-cleaning/code/data-cleaning_python.ipynb
+      - href: ./data-cleaning/code/data-cleaning_vF.ipynb
         text: Data Cleaning
       - href: ./data-exploration/code/data-exploration.ipynb
         text: Data Exploration

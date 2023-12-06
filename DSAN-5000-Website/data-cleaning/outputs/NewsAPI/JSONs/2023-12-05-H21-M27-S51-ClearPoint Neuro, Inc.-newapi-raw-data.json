@@ -1,0 +1,32 @@
+{
+    "status": "ok",
+    "totalResults": 2,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "ETF Daily News"
+            },
+            "author": "MarketBeat News",
+            "title": "ClearPoint Neuro (NASDAQ:CLPT) Issues Earnings Results",
+            "description": "ClearPoint Neuro (NASDAQ:CLPT \u2013 Get Free Report) issued its quarterly earnings results on Thursday. The company reported ($0.20) earnings per share (EPS) for the quarter, beating the consensus estimate of ($0.25) by $0.05, reports. ClearPoint Neuro had a nega\u2026",
+            "url": "https://www.etfdailynews.com/2023/11/11/clearpoint-neuro-nasdaqclpt-issues-earnings-results/",
+            "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/clearpoint-neuro-inc-logo.png?v=20221219135900&w=240&h=240&zc=2",
+            "publishedAt": "2023-11-11T13:12:47Z",
+            "content": "ClearPoint Neuro (NASDAQ:CLPT \u2013 Get Free Report) issued its quarterly earnings results on Thursday. The company reported ($0.20) earnings per share (EPS) for the quarter, beating the consensus estima\u2026 [+3523 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "ETF Daily News"
+            },
+            "author": "MarketBeat News",
+            "title": "MRI Interventions (OTCMKTS:MRIC) Shares Down 0.4%",
+            "description": "MRI Interventions Inc (OTCMKTS:MRIC \u2013 Get Free Report)\u2019s share price traded down 0.4% during trading on Monday . The stock traded as low as $5.03 and last traded at $5.14. 51,600 shares traded hands during trading, a decline of 18% from the average session vo\u2026",
+            "url": "https://www.etfdailynews.com/2023/11/08/mri-interventions-otcmktsmric-shares-down-0-4/",
+            "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/mri-interventions-inc-logo.png?v=20211206095158&w=240&h=240&zc=2",
+            "publishedAt": "2023-11-08T14:20:44Z",
+            "content": "MRI Interventions Inc (OTCMKTS:MRIC \u2013 Get Free Report)\u2019s share price traded down 0.4% during trading on Monday . The stock traded as low as $5.03 and last traded at $5.14. 51,600 shares traded hands \u2026 [+1039 chars]"
+        }
+    ]
+}
