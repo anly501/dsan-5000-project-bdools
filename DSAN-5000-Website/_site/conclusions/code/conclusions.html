@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN 5000 Project - Conclusions</title>
+<title>Conclusions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4448,11 +4448,6 @@ vertical-align: -.125em;
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="https://kclsed.org/wp-content/uploads/2020/02/3u-georgetown-university-logo-600x200-1.png">
-    <span class="navbar-title">DSAN 5000 Project</span>
-    </a>
-  </div>
             <div id="quarto-search" class title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -4480,7 +4475,7 @@ vertical-align: -.125em;
  <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../data-cleaning/code/data-cleaning_python.html" rel target>
+    <a class="nav-link" href="../../data-cleaning/code/data-cleaning_vF.html" rel target>
  <span class="menu-text">Data Cleaning</span></a>
   </li>  
   <li class="nav-item">
@@ -4500,7 +4495,7 @@ vertical-align: -.125em;
  <span class="menu-text">Dimensionality Reduction</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../decision-trees/code/decision_trees.html" rel target>
+    <a class="nav-link" href="../../decision-trees/code/decision-trees.html" rel target>
  <span class="menu-text">Decision Trees</span></a>
   </li>  
   <li class="nav-item">
@@ -4520,7 +4515,20 @@ vertical-align: -.125em;
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><strong>Introduction</strong></a></li>
+  <li><a href="#data-preparation-and-exploration" id="toc-data-preparation-and-exploration" class="nav-link" data-scroll-target="#data-preparation-and-exploration"><strong>Data Preparation and Exploration</strong></a></li>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda"><strong>Exploratory Data Analysis (EDA)</strong></a></li>
+  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes"><strong>Naive Bayes</strong>:</a></li>
+  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction"><strong>Dimensionality Reduction</strong></a></li>
+  <li><a href="#decision-trees-and-random-forests" id="toc-decision-trees-and-random-forests" class="nav-link" data-scroll-target="#decision-trees-and-random-forests"><strong>Decision Trees and Random Forests</strong></a></li>
+  <li><a href="#comparative-analysis-of-models" id="toc-comparative-analysis-of-models" class="nav-link" data-scroll-target="#comparative-analysis-of-models"><strong>Comparative Analysis of Models</strong></a></li>
+  <li><a href="#challenges-and-future-directions" id="toc-challenges-and-future-directions" class="nav-link" data-scroll-target="#challenges-and-future-directions"><strong>Challenges and Future Directions</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -4542,8 +4550,50 @@ vertical-align: -.125em;
 
 </header>
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h2>
+<p>My DSAN 5000 project delved into the complexities of FDA approval for biomedical devices. The focus was on uncovering how various factors, notably financial aspects, influence this approval process. This exploration was vital due to its direct impact on the safety, efficacy, and availability of life-enhancing devices, especially for the 133 million Americans with chronic illnesses (World Health Organization, 2019).</p>
+</section>
+<section id="data-preparation-and-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation-and-exploration"><strong>Data Preparation and Exploration</strong></h2>
+<p>The dataset, derived from FDA and SEC sources, included features like device names, company names, financial metrics, and clearance . A critical step was addressing missing values and normalizing the data for accurate analysis.</p>
+</section>
+<section id="exploratory-data-analysis-eda" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis-eda"><strong>Exploratory Data Analysis (EDA)</strong></h2>
+<ol type="1">
+<li><p><strong>Descriptive Statistics and Distributions</strong>: Visualizations revealed right-skewed distributions in financial variables, indicating a predominance of lower values with occasional high outliers.</p></li>
+<li><p><strong>Correlation Analysis</strong>: A correlation heatmap showed interesting relationships, like a moderate positive correlation between Gross Profit and SG&amp;A expenses. This suggested that companies with higher gross profits tend to have higher SG&amp;A expenses.</p></li>
+<li><p><strong>Categorical Variables Exploration</strong>: Analysis of financial variables by advisory committee and clearance type revealed significant insights. For instance, certain advisory committees showed higher average revenues, suggesting more robust market performance or larger market shares.</p></li>
+</ol>
+</section>
+<section id="naive-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes"><strong>Naive Bayes</strong>:</h2>
+<p>Gaussian Naive Bayes was used to predict clearance types, yielding a reasonable fit with notable class bias towards the majority class. However, the model’s performance was notably poor in predicting advisory committee descriptions, with low training and test accuracies, indicating issues with feature relevance and model fit.</p>
+</section>
+<section id="dimensionality-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction"><strong>Dimensionality Reduction</strong></h2>
+<p>Dimensionality reduction, using PCA and t-SNE, aimed to simplify the complex dataset. PCA was notably effective, with the first two components capturing 95% of the variance. This reduction facilitated a clearer understanding of the financial structure’s impact on FDA approvals. However, t-SNE’s inconclusive results in clustering advisory committees indicated the need for more sophisticated models to uncover these relationships.</p>
+</section>
+<section id="decision-trees-and-random-forests" class="level2">
+<h2 class="anchored" data-anchor-id="decision-trees-and-random-forests"><strong>Decision Trees and Random Forests</strong></h2>
+<p>These models, combined with SMOTE for handling class imbalances, were used to predict FDA medical device approval categories based on financial data. The hypothesis was that stronger financials would influence specific clearance types and advisory committee categories. Hyperparameter tuning was implemented for optimizing model performance. The results showed that the models were not effective in predicting FDA approval categories based on financial data. This was likely due to the complexity of the data and the need for more sophisticated models.</p>
+</section>
+<section id="comparative-analysis-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-analysis-of-models"><strong>Comparative Analysis of Models</strong></h2>
+<p>The Naive Bayes model’s poor performance contrasted with the relatively better performance of the Decision Trees and Random Forests. This highlighted the importance of model selection, especially in the context of class imbalance and feature relevance. The project underscored the need for more nuanced feature engineering and advanced algorithms to capture complex relationships in the data.</p>
+</section>
+<section id="challenges-and-future-directions" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-and-future-directions"><strong>Challenges and Future Directions</strong></h2>
+<p>The project faced challenges in data quality, class imbalance, and the complexity of relationships between variables. Future directions include:</p>
+<ul>
+<li>Enhancing feature engineering and data preprocessing.</li>
+<li>Exploring non-linear modeling techniques.</li>
+<li>Addressing class imbalance with tailored resampling methods or algorithms.</li>
+<li>Continual improvement of model selection and feature relevance.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -30,7 +30,7 @@ website:
         text: Clustering
       - href: ./dimensionality-reduction/code/dimensionality-reduction.ipynb
         text: Dimensionality Reduction
-      - href: ./decision-trees/code/decision_trees.ipynb
+      - href: ./decision-trees/code/decision-trees.ipynb
         text: Decision Trees
       - href: ./conclusions/code/conclusions.ipynb
         text: Conclusions
